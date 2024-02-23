@@ -7,18 +7,26 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
+
+
 {
+    
+    public function aboutList()
+    {
+        return view('pages.about-page');
+    }
+
     public function index(){
         if(Auth::id()){
             $usertype = Auth()->user()->user_type;
             if($usertype=="admin"){
-                return view('owner');
+                return view('userpanel.admin.admin-dashboard');
             }
             else if($usertype=="company"){
-                return view('companies');
+                return view('userpanel.company.company-dashboard');
             }
             else if($usertype=="user"){
-                return view('candidates');
+                return view('userpanel.user.user-dashboard');
             }
         }
     }

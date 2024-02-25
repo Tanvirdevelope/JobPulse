@@ -38,7 +38,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/job-create',[JobController::class, 'jobCreate'])->middleware(['auth', 'verified'])->name('job-create');
 Route::get('/job-list',[JobController::class, 'jobList'])->middleware(['auth', 'verified'])->name('job-list');
+Route::get('/job-create',[JobController::class, 'jobCreate'])->middleware(['auth', 'verified'])->name('job-create');
+Route::post('/job-store',[JobController::class, 'jobStore'])->middleware(['auth', 'verified'])->name('job-store');
 
 require __DIR__.'/auth.php';

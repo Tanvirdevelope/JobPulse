@@ -20,7 +20,7 @@
                     <div class="form-addons">
                     <input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                     <img src="asset/assets/img/icons/users1.svg" alt="img">
-                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('name')" class="mt-2 text-danger" />
                     </div>
                     </div>
 
@@ -29,7 +29,7 @@
                     <div class="form-addons">
                     <input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
                     <img src="asset/assets/img/icons/mail.svg" alt="img">
-                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger" />
                     </div>
                     </div>
 
@@ -38,7 +38,7 @@
                     <div class="pass-group">
                     <input id="password" class="block mt-1 w-full pass-input" type="password" name="password" required autocomplete="new-password" />
                     <span class="fas toggle-password fa-eye-slash"></span>
-                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('password')" class="mt-2 text-danger" />
                     </div>
                     </div>
 
@@ -47,7 +47,7 @@
                     <div class="pass-group">
                     <input id="password_confirmation" class="block mt-1 w-full pass-input" type="password" name="password_confirmation" required autocomplete="new-password" />
                     <span class="fas toggle-password fa-eye-slash"></span>
-                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2 text-danger" />
                     </div>
                     </div>
                 

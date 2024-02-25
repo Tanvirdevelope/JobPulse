@@ -10,17 +10,15 @@
     <title>Jpb Pulse</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.jpg">
-
     <link rel="stylesheet" href="asset/assets/css/bootstrap.min.css">
-
     <link rel="stylesheet" href="asset/assets/css/animate.css">
-
+    <link rel="stylesheet" href="asset/assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="asset/assets/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="asset/assets/css/dataTables.bootstrap4.min.css">
-
     <link rel="stylesheet" href="asset/assets/plugins/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="asset/assets/plugins/fontawesome/css/all.min.css">
-
     <link rel="stylesheet" href="asset/assets/css/style.css">
+
 </head>
 <body>
     <div id="global-loader">
@@ -77,7 +75,7 @@
                         <span class="status online"></span></span>
                         <div class="profilesets">
                         <h6>{{ Auth::user()->name }}</h6>
-                        <h5>Admin</h5>
+                        <h5>Company</h5>
                         </div>
                         </div>
                         <hr class="m-0">
@@ -116,15 +114,18 @@
                         <a href="{{ route('home') }}"><img src="asset/assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
                         </li>
 
-                        <li>
-                        <a href="components.html"><img src="asset/assets/img/icons/sales1.svg" alt="img"><span> Jobs</span></a>
+                        <li class="submenu">
+                            <a href="javascript:void(0);"><img src="asset/assets/img/icons/expense1.svg" alt="img"><span> Jobs</span> <span class="menu-arrow"></span></a>
+                            <ul>
+                            <li><a href="{{ route('job-create') }}">Add Job</a></li>
+                            <li><a href="{{ route('job-list') }}">Job List</a></li></ul>
                         </li>
 
                         <li class="submenu">
                         <a href="javascript:void(0);"><img src="asset/assets/img/icons/expense1.svg" alt="img"><span> Blogs</span> <span class="menu-arrow"></span></a>
                         <ul>
-                        <li><a href="expenselist.html">Categories</a></li>
-                        <li><a href="createexpense.html">Posts</a></li></ul>
+                        <li><a href="{{ route('home') }}">Categories</a></li>
+                        <li><a href="{{ route('home') }}">Posts</a></li></ul>
                         </li>
 
                         <li>
@@ -144,16 +145,21 @@
     </div>
 
 
-    <script src="asset/assets/js/jquery-3.6.0.min.js"></script>
-    
-    <script src="asset/assets/js/feather.min.js"></script>
-    
+    <script src="asset/assets/js/jquery-3.6.0.min.js"></script>    
+    <script src="asset/assets/js/feather.min.js"></script>    
     <script src="asset/assets/js/jquery.slimscroll.min.js"></script>    
     <script src="asset/assets/js/jquery.dataTables.min.js"></script>
     <script src="asset/assets/js/dataTables.bootstrap4.min.js"></script>    
-    <script src="asset/assets/js/bootstrap.bundle.min.js"></script>    
+    <script src="asset/assets/js/bootstrap.bundle.min.js"></script>  
+    <script src="asset/assets/js/moment.min.js"></script>
+    <script src="asset/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="asset/assets/plugins/select2/js/select2.min.js"></script>
+    <script src="asset/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="asset/assets/plugins/sweetalert/sweetalerts.min.js"></script>     
     <script src="asset/assets/plugins/apexchart/apexcharts.min.js"></script>
-    <script src="asset/assets/plugins/apexchart/chart-data.js"></script>    
+    <script src="asset/assets/plugins/apexchart/chart-data.js"></script>
     <script src="asset/assets/js/script.js"></script>
+    
+    
     </body>
     </html>

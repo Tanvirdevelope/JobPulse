@@ -119,8 +119,8 @@
                         <li class="submenu">
                             <a href="javascript:void(0);"><img src="asset/assets/img/icons/expense1.svg" alt="img"><span> Jobs</span> <span class="menu-arrow"></span></a>
                             <ul>
-                            <li><a href="{{ route('job-create') }}">Add Job</a></li>
-                            <li><a href="{{ route('job-list') }}">Job List</a></li></ul>
+                            <li><a href="{{ route('home') }}">Add Job</a></li>
+                            <li><a href="{{ route('home') }}">Job List</a></li></ul>
                         </li>
 
                         <li class="submenu">

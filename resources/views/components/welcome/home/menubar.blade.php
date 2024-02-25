@@ -100,17 +100,17 @@
                                         <a href="{{ url('/about') }}">About</a>
                                     </li>
                                     <li>
-                                        <a href="about.html">Jobs</a>                                       
+                                        <a href="{{ url('/jobs') }}">Jobs</a>                                       
                                     </li>
                                     <li class="has-dropdown">
-                                        <a href="blog.html">Blogs</a>
+                                        <a href="#">Blogs</a>
                                         <ul class="sub-menu">
-                                            <li><a href="blog.html">Blogs</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                            <li><a href="{{ url('/blogs') }}">Blogs</a></li>
+                                            <li><a href="{{ url('/blogs') }}">Blog Details</a></li>
                                         </ul>
                                     </li>
 
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="{{ url('/contact') }}">Contact</a></li>
                                 </ul>
                             </nav>
                         </div>

@@ -10,7 +10,6 @@ class HomeController extends Controller
 
 
 {
-    
     public function aboutList()
     {
         return view('pages.about-page');

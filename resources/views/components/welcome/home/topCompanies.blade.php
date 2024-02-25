@@ -21,62 +21,62 @@
     <div class="data-inner-version-two">
         <div class="container">
             <div class="row">
-                <div class="col-lg-1 col-md-4 col-6">
+                <div class="col-lg-1 col-md-2 col-4">
                     <div class="wrapper">
-                        <img class="img-fluid" src="./assets/img/brand/company-1.png" alt="">
+                        <a href="#"><img class="img-fluid" src="./assets/img/brand/company-1.png" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-6">
+                <div class="col-lg-1 col-md-2 col-4">
                     <div class="wrapper">
-                        <img class="img-fluid" src="./assets/img/brand/company-2.png" alt="">
+                        <a href="#"><img class="img-fluid" src="./assets/img/brand/company-2.png" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-6">
+                <div class="col-lg-1 col-md-2 col-4">
                     <div class="wrapper">
                         <img class="img-fluid" src="./assets/img/brand/company-3.png" alt="">
                     </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-6">
+                <div class="col-lg-1 col-md-2 col-4">
                     <div class="wrapper">
                         <img class="img-fluid" src="./assets/img/brand/company-4.png" alt="">
                     </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-6">
+                <div class="col-lg-1 col-md-2 col-4">
                     <div class="wrapper">
                         <img class="img-fluid" src="./assets/img/brand/company-5.png" alt="">
                     </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-6">
+                <div class="col-lg-1 col-md-2 col-4">
                     <div class="wrapper">
                         <img class="img-fluid" src="./assets/img/brand/company-6.png" alt="">
                     </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-6">
+                <div class="col-lg-1 col-md-2 col-4">
                     <div class="wrapper">
                         <img class="img-fluid" src="./assets/img/brand/company-1.png" alt="">
                     </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-6">
+                <div class="col-lg-1 col-md-2 col-4">
                     <div class="wrapper">
                         <img class="img-fluid" src="./assets/img/brand/company-2.png" alt="">
                     </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-6">
+                <div class="col-lg-1 col-md-2 col-4">
                     <div class="wrapper">
                         <img class="img-fluid" src="./assets/img/brand/company-3.png" alt="">
                     </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-6">
+                <div class="col-lg-1 col-md-2 col-4">
                     <div class="wrapper">
                         <img class="img-fluid" src="./assets/img/brand/company-4.png" alt="">
                     </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-6">
+                <div class="col-lg-1 col-md-2 col-4">
                     <div class="wrapper">
                         <img class="img-fluid" src="./assets/img/brand/company-5.png" alt="">
                     </div>
                 </div>
-                <div class="col-lg-1 col-md-4 col-6">
+                <div class="col-lg-1 col-md-2 col-4">
                     <div class="wrapper">
                         <img class="img-fluid" src="./assets/img/brand/company-6.png" alt="">
                     </div>

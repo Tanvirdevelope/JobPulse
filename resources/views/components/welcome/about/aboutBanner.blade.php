@@ -6,7 +6,7 @@
                         <div class="left-side">
                             <div class="wrapper">
                                 <div class="img-file">
-                                    <img class="img-fluid" src="./assets/img/about-us/about-3.png" alt="">
+                                    <img class="img-fluid" src="./assets/img/about-us/about-1.jpg" alt="">
                                 </div>
                             </div>
                         </div>

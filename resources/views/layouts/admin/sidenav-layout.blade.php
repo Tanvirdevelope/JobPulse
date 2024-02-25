@@ -10,16 +10,12 @@
     <title>Jpb Pulse</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="asset/assets/img/favicon.jpg">
-
     <link rel="stylesheet" href="asset/assets/css/bootstrap.min.css">
-
     <link rel="stylesheet" href="asset/assets/css/animate.css">
-
+    <link rel="stylesheet" href="asset/assets/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="asset/assets/css/dataTables.bootstrap4.min.css">
-
     <link rel="stylesheet" href="asset/assets/plugins/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="asset/assets/plugins/fontawesome/css/all.min.css">
-
     <link rel="stylesheet" href="asset/assets/css/style.css">
 </head>
 <body>
@@ -117,31 +113,34 @@
                         </li>
 
                         <li>
-                        <a href="components.html"><img src="asset/assets/img/icons/product.svg" alt="img"><span> Companies</span></a>
-                        </li>
-
-                        <li>
-                        <a href="components.html"><img src="asset/assets/img/icons/sales1.svg" alt="img"><span> Jobs</span></a>
+                        <a href="{{ route('home') }}"><img src="asset/assets/img/icons/product.svg" alt="img"><span> Companies</span></a>
                         </li>
 
                         <li class="submenu">
-                        <a href="components.html"><img src="asset/assets/img/icons/purchase1.svg" alt="img"><span> Employee</span></a>
+                            <a href="javascript:void(0);"><img src="asset/assets/img/icons/expense1.svg" alt="img"><span> Jobs</span> <span class="menu-arrow"></span></a>
+                            <ul>
+                            <li><a href="{{ route('job-create') }}">Add Job</a></li>
+                            <li><a href="{{ route('job-list') }}">Job List</a></li></ul>
+                        </li>
+
+                        <li class="submenu">
+                        <a href="{{ route('home') }}"><img src="asset/assets/img/icons/purchase1.svg" alt="img"><span> Employee</span></a>
                         </li>
 
                         <li class="submenu">
                         <a href="javascript:void(0);"><img src="asset/assets/img/icons/expense1.svg" alt="img"><span> Blogs</span> <span class="menu-arrow"></span></a>
                         <ul>
-                        <li><a href="expenselist.html">Categories</a></li>
-                        <li><a href="createexpense.html">Posts</a></li></ul>
+                        <li><a href="{{ route('home') }}">Blogs</a></li>
+                        <li><a href="{{ route('home') }}">Blogs List</a></li></ul>
                         </li>
 
 
                         <li>
-                        <a href="components.html"><i data-feather="layers"></i><span> Pages</span> </a>
+                        <a href="{{ route('home') }}"><i data-feather="layers"></i><span> Pages</span> </a>
                         </li>
 
                         <li>
-                        <a href="blankpage.html"><i data-feather="file"></i><span> Plugins</span> </a>
+                        <a href="{{ route('home') }}"><i data-feather="file"></i><span> Plugins</span> </a>
                         </li>
 
                      
@@ -162,7 +161,10 @@
     <script src="asset/assets/js/jquery.slimscroll.min.js"></script>    
     <script src="asset/assets/js/jquery.dataTables.min.js"></script>
     <script src="asset/assets/js/dataTables.bootstrap4.min.js"></script>    
-    <script src="asset/assets/js/bootstrap.bundle.min.js"></script>    
+    <script src="asset/assets/js/bootstrap.bundle.min.js"></script>   
+    <script src="asset/assets/plugins/select2/js/select2.min.js"></script> 
+    <script src="asset/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="asset/assets/plugins/sweetalert/sweetalerts.min.js"></script>
     <script src="asset/assets/plugins/apexchart/apexcharts.min.js"></script>
     <script src="asset/assets/plugins/apexchart/chart-data.js"></script>    
     <script src="asset/assets/js/script.js"></script>

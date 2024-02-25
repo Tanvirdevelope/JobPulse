@@ -10,7 +10,7 @@
                             <div class="col-12">
                                 <div class="content">
                                     <div class="heading-text ">
-                                        <h2 class="text-center">Latgest Job <span
+                                        <h2 class="text-center">Largest Job <span
                                                 class="theme-color">Site</span> in Bangladesh</h2>
                                         <p class="text-center">Human shelters were at first very simple and
                                             perhaps lasted only a

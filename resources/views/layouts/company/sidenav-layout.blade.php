@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="asset/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="asset/assets/css/animate.css">
     <link rel="stylesheet" href="asset/assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="asset/assets/plugins/toastr/toatr.css">
     <link rel="stylesheet" href="asset/assets/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="asset/assets/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="asset/assets/plugins/fontawesome/css/fontawesome.min.css">
@@ -154,11 +155,17 @@
     <script src="asset/assets/js/moment.min.js"></script>
     <script src="asset/assets/js/bootstrap-datetimepicker.min.js"></script>
     <script src="asset/assets/plugins/select2/js/select2.min.js"></script>
-    <script src="asset/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
-    <script src="asset/assets/plugins/sweetalert/sweetalerts.min.js"></script>     
     <script src="asset/assets/plugins/apexchart/apexcharts.min.js"></script>
     <script src="asset/assets/plugins/apexchart/chart-data.js"></script>
+    <script src="asset/assets/plugins/toastr/toastr.min.js"></script>
+    <script src="asset/assets/plugins/toastr/toastr.js"></script>
     <script src="asset/assets/js/script.js"></script>
+
+    <script>
+        @if (Session::has('success'))
+            toastr.success("{{session('success')}}")
+        @endif
+    </script>
     
     
     </body>

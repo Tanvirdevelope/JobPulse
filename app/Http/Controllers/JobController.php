@@ -41,6 +41,6 @@ class JobController extends Controller
 
         Job::create($request->all());
 
-        return redirect()->route('job-create')->with('Success','Jobs Created Successfully');
+        return redirect()->route('job-list')->with('success','Jobs Created Successfully');
     }
 }

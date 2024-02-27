@@ -43,4 +43,11 @@ class JobController extends Controller
 
         return redirect()->route('job-list')->with('success','Jobs Created Successfully');
     }
+
+    public function jobEdit(Job $jobs){
+        return view('userpanel.company.job.job-edit',compact('jobs'));
+    }
+    // public function jobUpdate(Request $request, Job $jobs){
+    //     // return view('userpanel.company.job.job-edit',compact('jobs'));
+    // }
 }

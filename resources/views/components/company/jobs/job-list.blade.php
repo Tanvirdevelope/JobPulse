@@ -95,7 +95,7 @@
                                 <img src="asset/assets/img/icons/eye.svg" alt="img">
                                 </a>
 
-                                <a class="me-3" href="editproduct.html">
+                                <a class="me-3" href="{{route('jobs.edit', $jobItem->id)}}">
                                 <img src="asset/assets/img/icons/edit.svg" alt="img">
                                 </a>
 

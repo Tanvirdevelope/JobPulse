@@ -23,6 +23,11 @@ class JobController extends Controller
     {
         return view('userpanel.company.job.job-create');
     }
+    public function jobShow(string $id)
+    {
+        $jobs = Job::findOrFail($id);
+        return view('userpanel.company.job.job-show', compact('jobs'));
+    }
 
     public function jobStore(Request $request){
              $request->validate([
@@ -44,10 +49,43 @@ class JobController extends Controller
         return redirect()->route('job-list')->with('success','Jobs Created Successfully');
     }
 
-    public function jobEdit(Job $jobs){
-        return view('userpanel.company.job.job-edit',compact('jobs'));
+   
+    public function jobEdit(string $id){
+        $jobs = Job::findOrFail($id);
+        return view('userpanel.company.job.job-edit', compact('jobs'));
     }
-    // public function jobUpdate(Request $request, Job $jobs){
-    //     // return view('userpanel.company.job.job-edit',compact('jobs'));
-    // }
+
+    public function jobUpdate(Request $request, string $id){
+
+        $request->validate([
+            'organization_name' => 'required|string|max:100',
+            'designation' => 'required|string|max:100',
+            'application_deadline' => 'required|date|max:100',
+            'vacancy_count'=> 'required|numeric',
+            'job_location'=> 'required|string|max:200',
+            'minimum_salary'=> 'required|numeric',
+            'published_date'=> 'required|date|string',
+            'requirements'=> 'required|string',
+            'responsibilities'=> 'required|string',
+            'benefits'=> 'required|string',
+            'employment_status'=> 'required|string',
+        ]);
+
+
+        $jobs = Job::find($id);
+        $jobs->update($request->all());
+
+        return redirect()->route('job-list')->with('success','Jobs Updated Successfully');
+    }
+
+    public function jobDelete(Request $request, string $id){
+        $jobs = Job::find($id);
+        $jobs->delete();
+
+        return redirect()->route('job-list')->with('success','Jobs Deleted Successfully');
+    }
+
+
+
+
 }

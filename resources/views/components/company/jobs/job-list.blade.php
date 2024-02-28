@@ -75,10 +75,10 @@
                                 </label>
                             </td>
                             <td class="productimgname">
-                                <a href="javascript:void(0);" class="product-img">
+                                <a href="#" class="product-img">
                                 <img src="asset/assets/img/product/product1.jpg" alt="product">
                                 </a>
-                                <a href="javascript:void(0);">{{$jobItem->organization_name}}</a>
+                                <a href="#">{{$jobItem->organization_name}}</a>
                             </td>
                             <td>{{$jobItem->designation}}</td>
                             <td>{{$jobItem->published_date}}</td>
@@ -89,9 +89,12 @@
                             <td>{{$jobItem->requirements}}</td>
                             <td>{{$jobItem->responsibilities}}</td>
                             <td>{{$jobItem->benefits}}</td>
-                            <td>{{$jobItem->employment_status}}</td>                        
+                            <td>{{$jobItem->employment_status}}</td>   
+                            <form action="{{route('jobs.delete', $jobItem->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')                     
                             <td>
-                                <a class="me-3" href="product-details.html">
+                                <a class="me-3" href="{{route('jobs.show', $jobItem->id)}}">
                                 <img src="asset/assets/img/icons/eye.svg" alt="img">
                                 </a>
 
@@ -99,10 +102,9 @@
                                 <img src="asset/assets/img/icons/edit.svg" alt="img">
                                 </a>
 
-                                <a class="confirm-text" href="javascript:void(0);">
-                                <img src="asset/assets/img/icons/delete.svg" alt="img">
-                                </a>
+                                <button type="submit" class="border-0"><img src="asset/assets/img/icons/delete.svg" alt="img"></button>
                             </td>
+                            </form>
                         </tr>
                         
                         @endforeach

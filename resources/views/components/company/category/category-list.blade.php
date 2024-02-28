@@ -71,7 +71,7 @@
                             @csrf
                             @method('DELETE')
                                 <td class="text-end">
-                                <a class="me-3" href="{{route('category.edit', $category->id)}}" data-bs-toggle="modal" data-bs-target="#editpayment">
+                                <a class="me-3" href="{{route('category.edit', $category->id)}}">
                                 <img src="asset/assets/img/icons/edit.svg" alt="img">
                                 </a>
                                     <button type="submit" class="border-0"><img src="asset/assets/img/icons/delete.svg" alt="img"></button>
@@ -85,3 +85,4 @@
         </div>
     </div>
 </div>
+

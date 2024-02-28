@@ -42,7 +42,7 @@
                         <div class="form-group">
                             <label>Published Date</label>
                             <div class="input-groupicon">
-                                <input type="date" placeholder="Choose Date" name="published_date">
+                                <input type="date" placeholder="DD-MM-YYYY" name="published_date">
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                         <div class="form-group">
                             <label>Application Deadline</label>
                             <div class="input-groupicon">
-                                <input type="date" placeholder="Choose Date" name="application_deadline">
+                                <input type="date" placeholder="DD-MM-YYYY" name="application_deadline">
                             </div>
                         </div>
                     </div>

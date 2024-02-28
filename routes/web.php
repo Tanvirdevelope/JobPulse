@@ -50,6 +50,8 @@ Route::get('/job-list',[JobController::class, 'jobList'])->middleware(['auth', '
 Route::get('/job-create',[JobController::class, 'jobCreate'])->middleware(['auth', 'verified'])->name('job-create');
 Route::post('/job-store',[JobController::class, 'jobStore'])->middleware(['auth', 'verified'])->name('job-store');
 Route::get('/jobs/{id}/edit',[JobController::class, 'jobEdit'])->middleware(['auth', 'verified'])->name('jobs.edit');
-// Route::put('/jobs/{id}',[JobController::class, 'jobUpdate'])->middleware(['auth', 'verified'])->name('jobs.update');
+Route::put('/jobs/{id}',[JobController::class, 'jobUpdate'])->middleware(['auth', 'verified'])->name('jobs.update');
+Route::get('/jobs/{id}',[JobController::class, 'jobShow'])->middleware(['auth', 'verified'])->name('jobs.show');
+Route::delete('/jobs/{id}',[JobController::class, 'jobDelete'])->middleware(['auth', 'verified'])->name('jobs.delete');
 
 require __DIR__.'/auth.php';

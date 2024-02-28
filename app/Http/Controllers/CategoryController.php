@@ -28,21 +28,29 @@ class CategoryController extends Controller
    return redirect()->route('category-list')->with('success','Jobs Category Created Successfully');
     }
 
-    public function categoryEdit(Category $categories){
-        return view('userpanel.company.category.category-page',compact('categories'));
+    // public function categoryEdit(Category $categories){
+    //     return view('userpanel.company.category.category-page',compact('categories'));
+    // }
+
+    public function categoryEdit(string $id){
+        $categories = Category::findOrFail($id);
+        return view('userpanel.company.category.category-edit',compact('categories'));
     }
 
-    public function categoryUpdate(Request $request, Category $categories){
+
+    public function categoryUpdate(Request $request, string $id){
 
             $request->validate([
             'category_name' => 'required|string|max:100',
         ]);
+        $categories = Category::find($id);
         $categories->update($request->all());
 
         return redirect()->route('category-list')->with('success','Jobs Category Updated Successfully');
     }
 
-    public function categoryDelete(Category $categories){
+    public function categoryDelete(Request $request, string $id){
+        $categories = Category::find($id);
         $categories->delete();
 
         return redirect()->route('category-list')->with('success','Jobs Category Deleted Successfully');

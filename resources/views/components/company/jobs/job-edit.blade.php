@@ -20,13 +20,14 @@
     
     <div class="card">
         <div class="card-body">
-            <form action="{{route('jobs.update')}}" method="POST">
+            <form action="{{route('jobs.update', $jobs->id)}}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="row">
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
                             <label>Company Name</label>
-                            <input type="text" name="organization_name">
+                            <input type="text" name="organization_name" value="{{$jobs->organization_name}}">
                         </div>
                     </div>
                     
@@ -34,7 +35,7 @@
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
                             <label>Desgignation</label>
-                            <input type="text" name="designation">
+                            <input type="text" name="designation" value="{{$jobs->designation}}">
                         </div>
                     </div>
 
@@ -42,7 +43,7 @@
                         <div class="form-group">
                             <label>Published Date</label>
                             <div class="input-groupicon">
-                                <input type="date" placeholder="Choose Date" name="published_date">
+                                <input type="date" placeholder="Choose Date" name="published_date" value="{{$jobs->published_date}}">
                             </div>
                         </div>
                     </div>
@@ -51,7 +52,7 @@
                         <div class="form-group">
                             <label>Application Deadline</label>
                             <div class="input-groupicon">
-                                <input type="date" placeholder="Choose Date" name="application_deadline">
+                                <input type="date" placeholder="Choose Date" name="application_deadline" value="{{$jobs->application_deadline}}">
                             </div>
                         </div>
                     </div>
@@ -72,7 +73,7 @@
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
                             <label>Vacancy</label>
-                            <input type="text" name="vacancy_count">
+                            <input type="text" name="vacancy_count" value="{{$jobs->vacancy_count}}">
                             <x-input-error :messages="$errors->get('vacancy_count')" class="mt-2 text-danger" />
                         </div>
                     </div>
@@ -80,14 +81,14 @@
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
                             <label>Job Location</label>
-                            <input type="text" name="job_location">
+                            <input type="text" name="job_location" value="{{$jobs->job_location}}">
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
                             <label>Minimum Salary</label>
-                            <input type="text" name="minimum_salary">
+                            <input type="text" name="minimum_salary" value="{{$jobs->minimum_salary}}">
                             <x-input-error :messages="$errors->get('minimum_salary')" class="mt-2 text-danger" />
                         </div>
                     </div>
@@ -95,28 +96,28 @@
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
                             <label>Job Requirments</label>
-                            <input type="text" name="requirements">
+                            <input type="text" name="requirements" value="{{$jobs->requirements}}">
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
                             <label>Job Responsibilities</label>
-                            <input type="text" name="responsibilities">
+                            <input type="text" name="responsibilities" value="{{$jobs->responsibilities}}">
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
                             <label>Job Benefits</label>
-                            <input type="text" name="benefits">
+                            <input type="text" name="benefits" value="{{$jobs->benefits}}">
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
                             <label>Employment Status</label>
-                            <input type="text" name="employment_status">
+                            <input type="text" name="employment_status" value="{{$jobs->employment_status}}">
                         </div>
                     </div>
 

@@ -48,9 +48,27 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-form-label col-md-2">Job Requirements</label>
+                        <div class="col-md-10">
+                            <h4>{{$jobs->requirements}}</h4>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">Job Benefits</label>
+                        <div class="col-md-10">
+                            <h4>{{$jobs->benefits}}</h4>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-form-label col-md-2">Minimum Salary</label>
                         <div class="col-md-10">
                             <h4>{{$jobs->minimum_salary}}</h4>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">Published Deadline</label>
+                        <div class="col-md-10">
+                            <h4>{{$jobs->published_date}}</h4>
                         </div>
                     </div>
                     <div class="form-group row">

@@ -3,15 +3,42 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\Category;
+use App\Models\JobCircular;
 use Illuminate\Http\Request;
 
-class JobController extends Controller
+class JobCircularController extends Controller
 {
-    public function jobBanner()
-    {
-        return view('pages.job-page');
+    public function allItem(){
+        // $jobPublished= JobCategories::orderBy('id', 'desc')->get();
+        $jobPublished = Category::select('categories.category_name', 'categories.id as category_id')
+        ->leftJoin('job_circulars', 'categories.id', '=', 'job_circulars.job_category_id')
+        ->selectRaw('COUNT(job_circulars.id) as total_jobs')
+        ->groupBy('categories.id', 'categories.category_name')
+        ->get();
+        //dd($jobPublished);
+         $jobList= JobCircular::orderBy('id', 'desc')->get();
+
+         return view('pages.home-page', compact('jobList','jobPublished'));
     }
 
+    public function jobIndex()
+    {
+
+        $jobList= JobCircular::orderBy('id', 'desc')->get();
+
+         return view('pages.job-page', compact('jobList'));
+
+      
+    }
+
+    public function show_jobDetails(string $id)
+    {
+        $job_details= JobCircular::findOrFail($id);
+        return view('pages.job-details', compact('job_details'));
+    }
+
+    
     public function jobList()
     {
         $jobs = Job::latest()->get();
@@ -86,5 +113,5 @@ class JobController extends Controller
 
 
 
-
+    
 }

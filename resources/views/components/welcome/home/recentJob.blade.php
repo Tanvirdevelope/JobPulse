@@ -1,5 +1,5 @@
  <!-- Service List Section version three start -->
- <section class="serviceList-section-version-three bg-gray py-80 ">
+ <section class="serviceList-section-version-three bg-gray py-80" id="joblist">
     <!-- Header Intro Version Three -->
     <div class="header-intro-version-three">
         <div class="container">
@@ -18,103 +18,41 @@
 
     <!-- Inner Card Items -->
     <div class="inner-card-items">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="wrapper">
-                        <div class="inner">
-                            <div class="count-file">
-                                <div class="hip">
-                                    <h2>01</h2>
+        <div class="container bg-white my-4">
+            <div class="col-md-12 p-3">
+                <!-- Job List Content Section -->
+                <div class="joblist_content">
+                    <!-- Job List Item -->
+                    @foreach ($jobList as $Jobs)
+                    <div class="joblist_item mb-2">
+    
+                        <div class="card mb-4">
+                        <a href="" target="_blank" class="fs-5 fw-bold">
+                            <div class="card-body">
+                                <div class="col-12">
+                                    <a href="" target="_blank"
+                                        class="theme-color text-decoration-none fs-5 fw-bold">{{$Jobs->designation}}</a>
+                                    <p class="fw-bold mb-3">{{$Jobs->organization_name}}</p>
+                                    <p class="text-gray mb-1"><i class="fa-solid fa-location-dot"></i> {{$Jobs->job_location}}</p>
+                                    <p class="mb-1"><i class="fa-solid fa-graduation-cap"></i> {{$Jobs->education}}</p>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="mb-1"><i class="fa-solid fa-briefcase"></i> {{$Jobs->experience}}</p>
+                                    </div>
+
+                                    <div class="col-6 text-end">
+                                        <p class="mb-1"><i class="fa fa-calendar theme-color"></i> <span class="theme-color">Deadline:</span> <b>{{$Jobs->application_deadline}}</b></p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="text-file">
-                                <h3>Development and Planning Phase</h3>
-                                <p>The most critical phase of a commercial construction project is the
-                                    development
-                                    and planning stage.</p>
-                            </div>
-                            <div class="btn-hold">
-                                <a href="services-details.html">
-                                    <span>Read More</span>
-                                    <i class="fa-regular fa-arrow-right-to-line"></i>
-                                </a>
-                            </div>
+                            </a>
                         </div>
-                        <div class="overlay"></div>
+                      
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="wrapper">
-                        <div class="inner">
-                            <div class="count-file">
-                                <div class="hip">
-                                    <h2>02</h2>
-                                </div>
-                            </div>
-                            <div class="text-file">
-                                <h3>Planning the budget for construction</h3>
-                                <p>The most critical phase of a commercial construction project is the
-                                    development
-                                    and planning stage.</p>
-                            </div>
-                            <div class="btn-hold">
-                                <a href="services-details.html">
-                                    <span>Read More</span>
-                                    <i class="fa-regular fa-arrow-right-to-line"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="overlay"></div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="wrapper">
-                        <div class="inner">
-                            <div class="count-file">
-                                <div class="hip">
-                                    <h2>03</h2>
-                                </div>
-                            </div>
-                            <div class="text-file">
-                                <h3>The pre-design phase development</h3>
-                                <p>The most critical phase of a commercial construction project is the
-                                    development
-                                    and planning stage.</p>
-                            </div>
-                            <div class="btn-hold">
-                                <a href="services-details.html">
-                                    <span>Read More</span>
-                                    <i class="fa-regular fa-arrow-right-to-line"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="overlay"></div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="wrapper">
-                        <div class="inner">
-                            <div class="count-file">
-                                <div class="hip">
-                                    <h2>04</h2>
-                                </div>
-                            </div>
-                            <div class="text-file">
-                                <h3>Preparation actual construction turns</h3>
-                                <p>The most critical phase of a commercial construction project is the
-                                    development
-                                    and planning stage.</p>
-                            </div>
-                            <div class="btn-hold">
-                                <a href="services-details.html">
-                                    <span>Read More</span>
-                                    <i class="fa-regular fa-arrow-right-to-line"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="overlay"></div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

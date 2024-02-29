@@ -55,11 +55,7 @@
                             <th>Published Date </th>
                             <th>Application Deadline</th>
                             <th>Vacancy</th>
-                            <th>Job Location</th>
                             <th>Minimum Salary</th>
-                            <th>Job Requirments</th>
-                            <th>Job Responsibilities</th>
-                            <th>Job Benefits</th>
                             <th>Employment Status</th>
                             <th>Action</th>
                         </tr>
@@ -84,11 +80,7 @@
                             <td>{{$jobItem->published_date}}</td>
                             <td>{{$jobItem->application_deadline}}</td>
                             <td>{{$jobItem->vacancy_count}}</td>
-                            <td>{{$jobItem->job_location}}</td>
                             <td>{{$jobItem->minimum_salary}}</td>
-                            <td>{{$jobItem->requirements}}</td>
-                            <td>{{$jobItem->responsibilities}}</td>
-                            <td>{{$jobItem->benefits}}</td>
                             <td>{{$jobItem->employment_status}}</td>   
                             <form action="{{route('jobs.delete', $jobItem->id)}}" method="post">
                                 @csrf

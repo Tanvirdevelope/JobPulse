@@ -112,8 +112,11 @@
                         <a href="{{ route('home') }}"><img src="asset/assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
                         </li>
 
-                        <li>
-                        <a href="{{ route('home') }}"><img src="asset/assets/img/icons/product.svg" alt="img"><span> Companies</span></a>
+                        <li class="submenu">
+                            <a href="javascript:void(0);"><img src="asset/assets/img/icons/expense1.svg" alt="img"><span> Companies</span> <span class="menu-arrow"></span></a>
+                            <ul>
+                            <li><a href="{{ route('home') }}">Add Company</a></li>
+                            <li><a href="{{ route('company-list') }}">Company List</a></li></ul>
                         </li>
 
                         <li class="submenu">

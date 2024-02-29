@@ -28,10 +28,6 @@ class CategoryController extends Controller
    return redirect()->route('category-list')->with('success','Jobs Category Created Successfully');
     }
 
-    // public function categoryEdit(Category $categories){
-    //     return view('userpanel.company.category.category-page',compact('categories'));
-    // }
-
     public function categoryEdit(string $id){
         $categories = Category::findOrFail($id);
         return view('userpanel.company.category.category-edit',compact('categories'));

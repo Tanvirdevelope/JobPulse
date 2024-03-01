@@ -84,7 +84,7 @@
                 <div class="col-xl-2 col-lg-2 col-md-6 col-6">
                     <div class="logo-area">
                         <div class="logo">
-                            <a href="index-2.html"><img src="./assets/img/common/Logo_White.png" alt="Roralex"></a>
+                            <a href="index-2.html"><img src="{{asset('./assets/img/common/Logo_White.png')}}" alt="Roralex"></a>
                         </div>
                     </div>
                 </div>
@@ -136,7 +136,7 @@
             <div class="sidebar__content">
                 <div class="sidebar__logo mb-20">
                     <a href="index.html">
-                        <img src="assets/img/common/Logo_Black.png" alt="logo">
+                        <img src="{{asset('assets/img/common/Logo_Black.png')}}" alt="logo">
                     </a>
                     <p>Trusted Contraction service!</p>
                 </div>

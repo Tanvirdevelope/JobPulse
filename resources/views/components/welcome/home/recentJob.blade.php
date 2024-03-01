@@ -1,4 +1,47 @@
- <!-- Service List Section version three start -->
+
+
+<!-- Total Jobs By categories -->
+<section class="serviceList-section-version-three bg-gray py-80" id="joblist">
+        <!-- Header Intro Version Three -->
+    <div class="header-intro-version-three">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="wrapper">
+                        <div class="pop-text">
+                            <h3>JOB CATEGORY</h3>
+                            <h2>All <span class="theme-color">Jobs</span> Category</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-white my-4">
+        <div class="row">
+            <!-- Card View -->
+            @foreach ($jobPublished as $jp)
+            <div class="col-md-3 joblist_item mb-2 mt-2">
+            <a href="{{ route('alljobs-by-category', $jp->category_id)}}" target="_blank" class="text-decoration-none fs-5 fw-bold">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Card content goes here -->
+                        <div class="">
+                            <p class="fw-bold mb-3">{{$jp->category_name}} [ {{$jp->total_jobs}} ]</p>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+            @endforeach
+        </div>
+    </div>
+    
+</section>
+<!-- Job Details Section -->
+
+<!-- Service List Section version three start -->
  <section class="serviceList-section-version-three bg-gray py-80" id="joblist">
     <!-- Header Intro Version Three -->
     <div class="header-intro-version-three">
@@ -8,7 +51,7 @@
                     <div class="wrapper">
                         <div class="pop-text">
                             <h3>JOB LIST</h3>
-                            <h2>Recent <span class="theme-color">Published</span> Jobs!</h2>
+                            <h2>Recent <span class="theme-color">Published</span> Jobs</h2>
                         </div>
                     </div>
                 </div>
@@ -27,10 +70,10 @@
                     <div class="joblist_item mb-2">
     
                         <div class="card mb-4">
-                        <a href="" target="_blank" class="fs-5 fw-bold">
+                        <a href="{{ route('job-details', $Jobs->id)}}" target="_blank" class="fs-5 fw-bold">
                             <div class="card-body">
                                 <div class="col-12">
-                                    <a href="" target="_blank"
+                                    <a href="{{ route('job-details', $Jobs->id)}}" target="_blank"
                                         class="theme-color text-decoration-none fs-5 fw-bold">{{$Jobs->designation}}</a>
                                     <p class="fw-bold mb-3">{{$Jobs->organization_name}}</p>
                                     <p class="text-gray mb-1"><i class="fa-solid fa-location-dot"></i> {{$Jobs->job_location}}</p>

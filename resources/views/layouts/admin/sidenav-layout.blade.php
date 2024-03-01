@@ -113,6 +113,12 @@
                         </li>
 
                         <li class="submenu">
+                            <a href="javascript:void(0);"><img src="{{asset('asset/assets/img/icons/product.svg')}}" alt="img"><span> Category</span> <span class="menu-arrow"></span></a>
+                            <ul>
+                            <li><a href="{{ route('category-list') }}">Category List</a></li></ul>
+                        </li>
+
+                        <li class="submenu">
                             <a href="javascript:void(0);"><img src="asset/assets/img/icons/expense1.svg" alt="img"><span> Companies</span> <span class="menu-arrow"></span></a>
                             <ul>
                             <li><a href="{{ route('home') }}">Add Company</a></li>

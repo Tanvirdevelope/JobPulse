@@ -10,6 +10,17 @@ class JobCircular extends Model
     use HasFactory;
 
     protected $fillable = [
-        'organization_name','designation','application_deadline','company_logo','vacancy_count','job_location','minimum_salary','published_date','requirements','responsibilities','benefits','employment_status'
+        'organization_name',
+        'designation',
+        'application_deadline',
+        'company_logo',
+        'vacancy_count',
+        'job_location',
+        'minimum_salary',
+        'published_date',
+        'requirements',
+        'responsibilities',
+        'benefits',
+        'employment_status'
     ];
 }

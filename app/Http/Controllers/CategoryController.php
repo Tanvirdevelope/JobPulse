@@ -10,12 +10,12 @@ class CategoryController extends Controller
     public function categoryList()
     {
         $categories = Category::latest()->get();
-        return view('userpanel.company.category.category-page',compact('categories'));
+        return view('userpanel.admin.category.category-page',compact('categories'));
     }
 
     public function categoryCreate()
     {
-        return view('userpanel.company.category.category-page');
+        return view('userpanel.admin.category.category-page');
     }
 
     public function categoryStore(Request $request){
@@ -30,7 +30,7 @@ class CategoryController extends Controller
 
     public function categoryEdit(string $id){
         $categories = Category::findOrFail($id);
-        return view('userpanel.company.category.category-edit',compact('categories'));
+        return view('userpanel.admin.category.category-edit',compact('categories'));
     }
 
 

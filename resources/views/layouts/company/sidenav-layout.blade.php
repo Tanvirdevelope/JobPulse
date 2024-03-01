@@ -84,7 +84,7 @@
                         <hr class="m-0">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <a class="dropdown-item logout pb-0" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                            <a class="dropdown-item logout pb-0" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
                             <img src="{{asset('asset/assets/img/icons/log-out.svg')}}" class="me-2" alt="img">Logout</a>
                             </div>
                         </form>
@@ -115,11 +115,6 @@
                         <a href="{{ route('home') }}"><img src="{{asset('asset/assets/img/icons/dashboard.svg')}}" alt="img"><span> Dashboard</span> </a>
                         </li>
 
-                        <li class="submenu">
-                            <a href="javascript:void(0);"><img src="{{asset('asset/assets/img/icons/product.svg')}}" alt="img"><span> Category</span> <span class="menu-arrow"></span></a>
-                            <ul>
-                            <li><a href="{{ route('category-list') }}">Category List</a></li></ul>
-                        </li>
 
                         <li class="submenu">
                             <a href="javascript:void(0);"><img src="{{asset('asset/assets/img/icons/expense1.svg')}}" alt="img"><span> Jobs</span> <span class="menu-arrow"></span></a>

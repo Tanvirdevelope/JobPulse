@@ -35,7 +35,7 @@ Route::get('/about', [HomeController::class, 'aboutList'])->name('about');
 Route::get('/contact', [ContactController::class, 'contactDetails'])->name('contact');
 Route::get('/blogs', [BlogController::class, 'blogDetails'])->name('blogs');
 
-
+// Dashboard Routes
 Route::get('/home',[HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
 Route::middleware('auth')->group(function () {
@@ -64,8 +64,9 @@ Route::put('/jobs/{id}',[JobCircularController::class, 'jobUpdate'])->middleware
 Route::get('/jobs/{id}',[JobCircularController::class, 'jobShow'])->middleware(['auth', 'verified'])->name('jobs.show');
 Route::delete('/jobs/{id}',[JobCircularController::class, 'jobDelete'])->middleware(['auth', 'verified'])->name('jobs.delete');
 
-Route::get('apply', [JobApplicationController::class, 'applyPage'])->middleware(['auth', 'verified'])->name('apply');
-Route::get('apply-submit/{id}', [JobApplicationController::class, 'applySubmit'])->middleware(['auth', 'verified'])->name('apply-submit');
 
+Route::post('apply', [JobApplicationController::class, 'applyPage'])->middleware(['auth', 'verified'])->name('apply');
+Route::get('apply-submit/{id}', [JobApplicationController::class, 'applySubmit'])->middleware(['auth', 'verified'])->name('apply-submit');
+Route::post('/application-store',[JobApplicationController::class, 'applicationStore'])->middleware(['auth', 'verified'])->name('application-store');
 
 require __DIR__.'/auth.php';

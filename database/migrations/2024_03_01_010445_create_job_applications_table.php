@@ -13,19 +13,27 @@ return new class extends Migration
     {
         Schema::create('job_applications', function (Blueprint $table) {
             $table->id();
-            
-            $table->string('current_sellary',50);
-            $table->string('expect_sellary',50);
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')
                 ->restrictOnDelete()
                 ->cascadeOnUpdate();
 
+            $table->UnsignedBigInteger('company_id');
+            $table->foreign('company_id')->references('id')->on('company_infos')
+                  ->restrictOnDelete()->cascadeOnUpdate(); // Foreign key to company_info table
+
             $table->unsignedBigInteger('job_id');
             $table->foreign('job_id')->references('id')->on('job_circulars')
                 ->restrictOnDelete()
                 ->cascadeOnUpdate();
+
+            $table->string('candidate_address',200);
+            $table->string('candidate_birth',50);
+            $table->string('candidate_age',50);
+            $table->enum('candidate_gender',['male','female']);
+            $table->string('candidate_image');
+            $table->string('candidate_signature');
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.welcome-layout')
 @section('content')
     @include('components.welcome.home.menubar')
     @include('components.welcome.blog.blogDetails')

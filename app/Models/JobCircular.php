@@ -10,6 +10,8 @@ class JobCircular extends Model
     use HasFactory;
 
     protected $fillable = [
+        'company_id',
+        'job_category_id',
         'organization_name',
         'designation',
         'application_deadline',
@@ -18,6 +20,8 @@ class JobCircular extends Model
         'job_location',
         'minimum_salary',
         'published_date',
+        'education',
+        'experience',
         'requirements',
         'responsibilities',
         'benefits',

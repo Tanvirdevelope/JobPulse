@@ -23,7 +23,7 @@
             <!-- Card View -->
             @foreach ($jobPublished as $jp)
             <div class="col-md-3 joblist_item mb-2 mt-2">
-            <a href="{{ route('alljobs-by-category', $jp->category_id)}}" target="_blank" class="text-decoration-none fs-5 fw-bold">
+            <a href="{{ route('alljobs-by-category', $jp->category_id)}}" class="text-decoration-none fs-5 fw-bold">
                 <div class="card">
                     <div class="card-body">
                         <!-- Card content goes here -->
@@ -70,10 +70,10 @@
                     <div class="joblist_item mb-2">
     
                         <div class="card mb-4">
-                        <a href="{{ route('job-details', $Jobs->id)}}" target="_blank" class="fs-5 fw-bold">
+                        <a href="{{ route('job-details', $Jobs->id)}}" class="fs-5 fw-bold">
                             <div class="card-body">
                                 <div class="col-12">
-                                    <a href="{{ route('job-details', $Jobs->id)}}" target="_blank"
+                                    <a href="{{ route('job-details', $Jobs->id)}}"
                                         class="theme-color text-decoration-none fs-5 fw-bold">{{$Jobs->designation}}</a>
                                     <p class="fw-bold mb-3">{{$Jobs->organization_name}}</p>
                                     <p class="text-gray mb-1"><i class="fa-solid fa-location-dot"></i> {{$Jobs->job_location}}</p>

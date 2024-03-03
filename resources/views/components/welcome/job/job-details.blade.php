@@ -126,7 +126,12 @@
 
         </div>
         <div class="d-flex justify-content-center align-items-center m-3">
-            <a href="{{ route('apply')}}" class="fs-5 fw-bold"><button class="btn btn-success px-3">Apply Now</button></a>
+            <form action="{{ route('apply')}}" method="POST">
+                @csrf
+                <input type="text" name="company_id" id="" value="{{ $job_details->id }}">
+                
+                <button class="btn btn-success px-3">Apply Now</button>
+            </form>
         </div>
     </div>
     

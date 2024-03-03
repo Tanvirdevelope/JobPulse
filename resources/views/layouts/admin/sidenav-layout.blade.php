@@ -77,7 +77,7 @@
                         </div>
                         </div>
                         <hr class="m-0">
-                        <a class="dropdown-item" href="profile.html"> <i class="me-2" data-feather="user"></i> My Profile</a>
+                        <a class="dropdown-item" href="{{route('profile.edit')}}"> <i class="me-2" data-feather="user"></i> My Profile</a>
                         <hr class="m-0">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

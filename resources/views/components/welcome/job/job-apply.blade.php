@@ -16,8 +16,8 @@
                         <div class="inner-text">
                             <h3><span class="theme-color">{{$job_details->organization_name}}</span></h3>
                         
-                            <h4>Software Developer</h4>
-                            <p>Application Deadline: <span class="theme-color fw-bold">12-02-2024</span></p>
+                            <h4>{{$job_details->designation}}</h4>
+                            <p>Application Deadline: <span class="theme-color fw-bold">{{$job_details->application_deadline}}</span></p>
                         </div>
 
                         
@@ -77,39 +77,56 @@
                                                             aria-required="true" value="{{$job_details->id}}" hidden>
                                                     </div>
 
-                                                    <div class="d-md-flex access gap-3">
-                                                        <input name="first_name" type="text" placeholder="First Name : "
-                                                            required title="Field must be a number."
-                                                            aria-required="true">
-                                                        <input name="last_name" type="date" placeholder="Last Name"
-                                                            required>
+                                                    <div class="access gap-3 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label>First Name : </label>
+                                                            <input name="first_name" id="floatingSelectGrid" type="text"
+                                                                required title="Field must be a number."
+                                                                aria-required="true">
+                                                        </div>
+                                                        <div class="form-group mt-15">
+                                                            <label>Last Name : </label>
+                                                            <input name="last_name" type="text" required>
+                                                        </div>
                                                     </div>
                                                     
-                                                    <div class="d-md-flex access gap-3 mt-15">
-                                                        <input name="address" type="text" placeholder="Address : "
-                                                            required>
-                                                            <label class="pt-2" for="floatingSelectGrid">Gender: </label>
-                                                                <select class="form-select" name="gender" id="floatingSelectGrid" aria-label="Floating label select example" required>                                                                
-                                                                    <option selected>Choose an Item</option>
-                                                                    <option value="male">Male</option>
-                                                                    <option value="female">Female</option>
-                                                                    <option value="others">Others</option>
-                                                                </select>
+                                                    <div class="access gap-3 mt-15 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label>Address : </label>
+                                                            <input name="address" type="text" required>
+                                                        </div>
+                                                        <div class="form-group mt-15">
+                                                            <label class="col-12">Gender : </label>
+                                                            <select name="gender" aria-label="Floating label select example" required>                                                                
+                                                                <option value="male">Male</option>
+                                                                <option value="female">Female</option>
+                                                                <option value="others">Others</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
 
-                                                    <div class="d-md-flex access gap-3 mt-15">
-                                                        <input name="birth_date" type="text" placeholder="Date of Birth : "
-                                                            required title="Field must be a number."
-                                                            aria-required="true">
-                                                            <p>Image Upload:</p>
+                                                    <div class="gap-3 mt-15">
+                                                        <div class="form-group mt-15 col-lg-6">
+                                                            <label class="col-12 mt-15">Date of Birth : </label>
+                                                            <input name="birth_date" type="date" required title="Field must be a number."
+                                                                aria-required="true">
+                                                                
+                                                        </div>
+                                                        <div class="form-group col-lg-6 mt-15">
+                                                            <label>Image Upload :</label>
                                                             <input name="image" type="file" placeholder="Image : ">
+                                                        </div>
                                                     </div>
 
-                                                    <div class="mt-15 d-md-flex access gap-3 mt-15">
-                                                        <p>Signature Upload:</p>
-                                                        <input name="signature" type="file" placeholder="Image : ">
-                                                        <p>CV Upload:</p>
-                                                        <input name="cv" type="file" placeholder="Image : ">
+                                                    <div class="gap-3 mt-15">
+                                                        <div class="form-group col-lg-6">
+                                                            <label>Signature Upload :</label>
+                                                            <input name="signature" type="file" placeholder="Image : ">
+                                                        </div>
+                                                        <div class="form-group col-lg-6 mt-15">
+                                                            <label>Upload Your CV :</label>
+                                                            <input name="cv" type="file" placeholder="Image : ">
+                                                        </div>
                                                     </div>
                                               
                                                 </div>

@@ -15,7 +15,6 @@ class JobApplicationController extends Controller
     {  
         // $job_details = JobApplication::all();
         $job_details = JobCircular::findOrFail($id);
-        // $company_info = CompanyInfo::findOrFail($id);
         $existingJob = DB::table('job_applications')->where('job_id', $id)->first();
         if ($existingJob ) {
             return redirect()->back()->with('error', 'You have already applied.');
@@ -101,11 +100,7 @@ class JobApplicationController extends Controller
          }
 
      }
-    
-//    JobApplication::create($request->all());
 
-//    return view('pages.job-apply');
-// return redirect()->route('apply')->with('success','Jobs Apply Successfully');
 }
 
 

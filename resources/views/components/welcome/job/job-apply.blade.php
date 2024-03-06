@@ -14,7 +14,7 @@
                         </div>
                                                 
                         <div class="inner-text">
-                            <h3><span class="theme-color">Company Name</span></h3>
+                            <h3><span class="theme-color">{{$job_details->organization_name}}</span></h3>
                         
                             <h4>Software Developer</h4>
                             <p>Application Deadline: <span class="theme-color fw-bold">12-02-2024</span></p>
@@ -36,6 +36,18 @@
         </ul>
     </div>
     @endif
+
+    @if(session('success'))
+        <div class="alert alert-success text-center">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger text-center">
+            {{ session('error') }}
+        </div>
+    @endif
   
     <!-- Inner Card Items -->
     <div class="contact-inner">
@@ -44,7 +56,7 @@
                 <div class="col-lg-8">
                     <div class="wrapper">
 
-                        <form action="{{route('application-store')}}" method="POST">
+                        <form action="{{route('application-store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="input-field">
                                 <div class="field">
@@ -61,53 +73,45 @@
                                                 <div class="input-inner">
 
                                                     <div class="d-md-flex access gap-3">
-                                                        <input name="user_id" type="text" required title="Field must be a number."
-                                                            aria-required="true" value="{{auth()->user()->id}}">
-                                                        <input name="company_id"  type="text" value="" required>
-                                                        {{-- <input name="job_id" type="text" placeholder="job_id"
-                                                            required> --}}
+                                                        <input name="job_id" type="text" required title="Field must be a number."
+                                                            aria-required="true" value="{{$job_details->id}}" hidden>
                                                     </div>
 
                                                     <div class="d-md-flex access gap-3">
-                                                        <input name="candidate_address" type="text" placeholder="Address : "
+                                                        <input name="first_name" type="text" placeholder="First Name : "
                                                             required title="Field must be a number."
                                                             aria-required="true">
-                                                        <input name="candidate_birth" type="date" placeholder="DD-MM-YYYY"
+                                                        <input name="last_name" type="date" placeholder="Last Name"
                                                             required>
                                                     </div>
                                                     
                                                     <div class="d-md-flex access gap-3 mt-15">
-                                                        <input name="candidate_age" type="text" placeholder="Age : "
+                                                        <input name="address" type="text" placeholder="Address : "
                                                             required>
-                                                        <input name="candidate_gender" type="text" placeholder="Gender :  "
-                                                            required>
-                                                            {{-- <input name="candidate_gender" type="text" placeholder="Gender :  "
-                                                            required> --}}
-                                                            
-                                                            {{-- <div class="form-group">
-                                                                <label name="candidate_gender" placeholder="Gender :">Product Name</label>
-                                                                <select class="select">
-                                                                <option>male</option>
-                                                                <option>female</option>
+                                                            <label class="pt-2" for="floatingSelectGrid">Gender: </label>
+                                                                <select class="form-select" name="gender" id="floatingSelectGrid" aria-label="Floating label select example" required>                                                                
+                                                                    <option selected>Choose an Item</option>
+                                                                    <option value="male">Male</option>
+                                                                    <option value="female">Female</option>
+                                                                    <option value="others">Others</option>
                                                                 </select>
-                                                            </div> --}}
                                                     </div>
-                                                    {{-- <div class="col-lg-3 col-sm-6 col-12">
-                                                        <div class="form-group">
-                                                            <label>Product Name</label>
-                                                            <select class="select">
-                                                            <option>Choose</option>
-                                                            <option>Supplier Name</option>
-                                                            </select>
-                                                        </div>
-                                                        </div> --}}
 
-                                                    <div class="mt-15 d-md-flex access gap-3">
-                                                        <p>Image Upload:</p>
-                                                        <input name="candidate_image" type="file" placeholder="Image : ">
-                                                        <p>Signature Upload:</p>
-                                                        <input name="candidate_signature" type="file" placeholder="Image : ">
+                                                    <div class="d-md-flex access gap-3 mt-15">
+                                                        <input name="birth_date" type="text" placeholder="Date of Birth : "
+                                                            required title="Field must be a number."
+                                                            aria-required="true">
+                                                            <p>Image Upload:</p>
+                                                            <input name="image" type="file" placeholder="Image : ">
                                                     </div>
+
+                                                    <div class="mt-15 d-md-flex access gap-3 mt-15">
+                                                        <p>Signature Upload:</p>
+                                                        <input name="signature" type="file" placeholder="Image : ">
+                                                        <p>CV Upload:</p>
+                                                        <input name="cv" type="file" placeholder="Image : ">
+                                                    </div>
+                                              
                                                 </div>
                                             </div>
                                         </div>

@@ -102,7 +102,7 @@
                     <div class="row">
                         <hr>
                         <div class="inner">
-                            <p>RORALEX &#169; 2023. All Rights Reserved</p>
+                            <p>TANVIR &#169; 2024. All Rights Reserved</p>
                             <ul>
                                 <li><a href="#">
                                         Contact Us

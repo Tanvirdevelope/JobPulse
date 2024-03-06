@@ -10,26 +10,16 @@ class JobApplication extends Model
 {
     protected $fillable = [
         'user_id',
-        'company_id',
         'job_id',
-        'candidate_address',
-        'candidate_birth',
-        'candidate_age',
-        'candidate_gender',
-        'candidate_image',
-        'candidate_signature',
+        'first_name',
+        'last_name',
+        'address',
+        'gender',
+        'birth_date',
+        'image',
+        'signature',
+        'cv',
     ];
 
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
-    public function job_application(): BelongsTo
-    {
-        return $this->belongsTo(JobApplication::class);
-    }
-    public function company_info(): BelongsTo
-    {
-        return $this->belongsTo(CompanyInfo::class);
-    }
+
 }

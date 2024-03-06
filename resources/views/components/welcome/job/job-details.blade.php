@@ -4,6 +4,18 @@
             <!-- Job Details Header Section -->
             <div class="jobdetails_header">
                 <div class="row">
+                    @if(session('success'))
+                        <div class="alert alert-success text-center">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if(session('error'))
+                        <div class="alert alert-danger text-center">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                    
                     <div class="col-sm-6">
                         <h3 class="theme-color">{{ $job_details->organization_name }}</h3>
                         <h3>{{ $job_details->designation }}</h3>
@@ -126,12 +138,7 @@
 
         </div>
         <div class="d-flex justify-content-center align-items-center m-3">
-            <form action="{{ route('apply')}}" method="POST">
-                @csrf
-                <input type="text" name="company_id" id="" value="{{ $job_details->id }}">
-                
-                <button class="btn btn-success px-3">Apply Now</button>
-            </form>
+            <a href="{{ route('apply-job', $job_details->id)}}" class="fs-5 fw-bold m-2 "><button class="btn btn-success px-3">Apply Now</button></a>
         </div>
     </div>
     

@@ -66,7 +66,7 @@ Route::delete('/jobs/{id}',[JobCircularController::class, 'jobDelete'])->middlew
 
 
 Route::post('apply', [JobApplicationController::class, 'applyPage'])->middleware(['auth', 'verified'])->name('apply');
-Route::get('apply-submit/{id}', [JobApplicationController::class, 'applySubmit'])->middleware(['auth', 'verified'])->name('apply-submit');
+Route::get('apply-job/{id}', [JobApplicationController::class, 'applyJob'])->middleware(['auth', 'verified'])->name('apply-job');
 Route::post('/application-store',[JobApplicationController::class, 'applicationStore'])->middleware(['auth', 'verified'])->name('application-store');
 
 require __DIR__.'/auth.php';

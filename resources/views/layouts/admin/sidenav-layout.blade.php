@@ -79,6 +79,8 @@
                         <hr class="m-0">
                         <a class="dropdown-item" href="{{route('profile.edit')}}"> <i class="me-2" data-feather="user"></i> My Profile</a>
                         <hr class="m-0">
+                        <a class="dropdown-item" href="{{ url('/') }}"> <i class="me-2" data-feather="settings"></i> Home Page</a>
+                        <hr class="m-0">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a class="dropdown-item logout pb-0" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
@@ -94,6 +96,7 @@
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="{{ url('/') }}">Home Page</a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <a class="dropdown-item" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>

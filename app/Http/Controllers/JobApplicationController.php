@@ -103,6 +103,25 @@ class JobApplicationController extends Controller
 
 }
 
+public function applied_job_list()
+{
+
+$user_id = auth()->user()->id;
+//$job_details = JobApplication::where('user_id', $user_id)->get();
+$job_details = DB::table('job_applications')
+    ->join('job_circulars', 'job_applications.job_id', '=', 'job_circulars.id')
+    ->select('job_circulars.*') // Select all columns from job_circulers table
+    ->where('job_applications.user_id', $user_id)
+    ->get();
+  //dd("$job_details");
+   //$existingJob = JobCircular::findOrFail($id);
+    if ($job_details) {
+        return view('userpanel.user.job-application.application-list', compact('job_details'));
+    } else {
+        return redirect()->back()->with('error', 'No Data Found.');
+    }
+    
+}
 
   
 }

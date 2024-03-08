@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('job_circulars', function (Blueprint $table) {
             $table->id();
 
-            $table->UnsignedBigInteger('company_id');
-            $table->foreign('company_id')->references('id')->on('company_infos')
-                ->restrictOnDelete()->cascadeOnUpdate(); // Foreign key to company_info table
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')
+                ->restrictOnDelete()
+                ->cascadeOnUpdate();
             
             $table->UnsignedBigInteger('job_category_id');
             $table->foreign('job_category_id')->references('id')->on('categories')
@@ -25,7 +26,7 @@ return new class extends Migration
             $table->string('organization_name');
             $table->string('designation');
             $table->string('application_deadline');
-            $table->string('company_logo');
+            $table->string('company_logo')->nullable();
             $table->integer('vacancy_count');
             $table->string('job_location');
             $table->decimal('minimum_salary', 10, 2);

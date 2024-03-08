@@ -59,7 +59,7 @@
                             <td>{{  $job->organization_name }}</td>
                             <td>{{  $job->designation }}</td>
                             <td>
-                                <span class="badges bg-lightgreen">{{ 'Accepted' }}</span>
+                                <span class="badges bg-lightgreen">{{ 'Success' }}</span>
                             </td>
                             <td class="text-end">
                                 <a class="me-3" href="editpermission.html">

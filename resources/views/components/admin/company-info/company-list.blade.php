@@ -63,7 +63,10 @@
                         <td>{{  $cl->company_contact }}</td>
                         <td>{{  $cl->company_address }}</td>
                         <td>
-                        <span class="badges bg-lightgreen">Active</span>
+                            <div class="status-toggle d-flex justify-content-between align-items-center">
+                            <input type="checkbox" id="user2" class="check" checked="">
+                            <label for="user2" class="checktoggle">checkbox</label>
+                            </div>
                         </td>
                         <td class="text-end">
                         <a class="me-3" href="editpermission.html">

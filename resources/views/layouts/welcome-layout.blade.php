@@ -33,14 +33,6 @@
 </head>
 
 <body>
-    {{-- {{asset('')}} --}}
-    <!--[if lte IE 9]>
-      <p class="browserupgrade">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-        your experience and security.
-      </p>
-    <![endif]-->
 
     <!-- Preloader Start-->
     <div class="preloader">
@@ -57,35 +49,35 @@
         @yield('content')
     </div>
 
-        <!-- JS here -->
-        <script src="{{asset('./assets/js/vendor/jquery.js')}}"></script>
-        <script src="{{asset('./assets/js/vendor/waypoints.js')}}"></script>
-        <script src="{{asset('./assets/js/emailjs.js')}}"></script>
-        <script src="{{asset('./assets/js/backtotop.js')}}"></script>
-        <script src="{{asset('./assets/js/bootstrap-bundle.js')}}"></script>
-        <script src="{{asset('./assets/js/counterup.js')}}"></script>
-        <script src="{{asset('./assets/js/imagesloaded-pkgd.js')}}"></script>
-        <script src="{{asset('./assets/js/isotope-pkgd.js')}}"></script>
-        <script src="{{asset('./assets/js/jquery.appear.js')}}"></script>
-        <script src="{{asset('./assets/js/jquery.knob.js')}}"></script>
-        <script src="{{asset('./assets/js/jquery.scrollbox.js')}}"></script>
-        <script src="{{asset('./assets/js/jQueryTab.js')}}"></script>
-        <script src="{{asset('./assets/js/magnific-popup.js')}}"></script>
-        <script src="{{asset('./assets/js/meanmenu.js')}}"></script>
-        <script src="{{asset('./assets/js/nice-select.js')}}"></script>
-        <script src="{{asset('./assets/js/owl-carousel.js')}}"></script>
-        <script src="{{asset('./assets/js/parallax.js')}}"></script>
-        <script src="{{asset('./assets/js/swiper-bundle.js')}}"></script>
-        <script src="{{asset('./assets/js/wow.js')}}"></script>        
-        <script src="{{asset('asset/assets/plugins/toastr/toastr.min.js')}}"></script>
-        <script src="{{asset('asset/assets/plugins/toastr/toastr.js')}}"></script>
-        <script src="{{asset('./assets/js/main.js')}}"></script>
+    <!-- JS here -->
+    <script src="{{asset('./assets/js/vendor/jquery.js')}}"></script>
+    <script src="{{asset('./assets/js/vendor/waypoints.js')}}"></script>
+    <script src="{{asset('./assets/js/emailjs.js')}}"></script>
+    <script src="{{asset('./assets/js/backtotop.js')}}"></script>
+    <script src="{{asset('./assets/js/bootstrap-bundle.js')}}"></script>
+    <script src="{{asset('./assets/js/counterup.js')}}"></script>
+    <script src="{{asset('./assets/js/imagesloaded-pkgd.js')}}"></script>
+    <script src="{{asset('./assets/js/isotope-pkgd.js')}}"></script>
+    <script src="{{asset('./assets/js/jquery.appear.js')}}"></script>
+    <script src="{{asset('./assets/js/jquery.knob.js')}}"></script>
+    <script src="{{asset('./assets/js/jquery.scrollbox.js')}}"></script>
+    <script src="{{asset('./assets/js/jQueryTab.js')}}"></script>
+    <script src="{{asset('./assets/js/magnific-popup.js')}}"></script>
+    <script src="{{asset('./assets/js/meanmenu.js')}}"></script>
+    <script src="{{asset('./assets/js/nice-select.js')}}"></script>
+    <script src="{{asset('./assets/js/owl-carousel.js')}}"></script>
+    <script src="{{asset('./assets/js/parallax.js')}}"></script>
+    <script src="{{asset('./assets/js/swiper-bundle.js')}}"></script>
+    <script src="{{asset('./assets/js/wow.js')}}"></script>        
+    <script src="{{asset('asset/assets/plugins/toastr/toastr.min.js')}}"></script>
+    <script src="{{asset('asset/assets/plugins/toastr/toastr.js')}}"></script>
+    <script src="{{asset('./assets/js/main.js')}}"></script>
 
-        <script>
-            @if (Session::has('success'))
-                toastr.success("{{session('success')}}")
-            @endif
-        </script>
+    <script>
+        @if (Session::has('success'))
+            toastr.success("{{session('success')}}")
+        @endif
+    </script>
         
     
     

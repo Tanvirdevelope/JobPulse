@@ -61,8 +61,15 @@ class JobCircularController extends Controller
 
     public function jobCreate()
     {
-        return view('userpanel.company.job.job-create');
+        $categories = Category::all();
+        $this->data['categories'] = [];
+        foreach ($categories as $category) {
+            $this->data['categories'][$category->id] = $category->category_name;
+        }
+        return view('userpanel.company.job.job-create',  $this->data);
     }
+
+    
     public function jobShow(string $id)
     {
         $jobs = JobCircular::findOrFail($id);
@@ -71,22 +78,55 @@ class JobCircularController extends Controller
 
     public function jobStore(Request $request){
              $request->validate([
-            'organization_name' => 'required|string|max:100',
-            'designation' => 'required|string|max:100',
-            'application_deadline' => 'required|date|max:100',
-            'vacancy_count'=> 'required|numeric',
-            'job_location'=> 'required|string|max:200',
-            'minimum_salary'=> 'required|numeric',
-            'published_date'=> 'required|date|string',
-            'requirements'=> 'required|string',
-            'responsibilities'=> 'required|string',
-            'benefits'=> 'required|string',
-            'employment_status'=> 'required|string',
+                'user_id' => 'required|numeric',
+                'job_category_id' => 'required|numeric',
+                'organization_name' => 'required|string|max:100',
+                'designation' => 'required|string|max:100',
+                'application_deadline' => 'required|string|max:100',
+                'company_logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
+                'vacancy_count'=> 'required|numeric',
+                'job_location'=> 'required|string|max:200',
+                'minimum_salary'=> 'required|numeric',
+                'published_date'=> 'required|string|string',
+                'requirements'=> 'required|string',
+                'responsibilities'=> 'required|string',
+                'benefits'=> 'required|string',
+                'employment_status'=> 'required|string',
         ]);
 
-        JobCircular::create($request->all());
+        if($request->hasFile('company_logo')){
+            $image = $request->company_logo;
+            $imageName = 'company_logo'.time().'.'.$image->getClientOriginalExtension();
+            $image->move('assets/img/company/', $imageName);
+        }
 
-        return redirect()->route('job-list')->with('success','Jobs Created Successfully');
+        $createJobs= JobCircular::create([
+            'user_id'=> $request->input('user_id'),
+            'job_category_id'=> $request->input('job_category_id'),
+            'organization_name'=> $request->input('organization_name'),
+            'designation' => $request->input('designation'),
+            'application_deadline' => $request->input('application_deadline'),
+            'company_logo' => $imageName,
+            'vacancy_count' => $request->input('vacancy_count'),
+            'job_location' => $request->input('job_location'),
+            'minimum_salary' => $request->input('minimum_salary'),
+            'published_date' => $request->input('published_date'),
+            'education' =>$request->input('education'),
+            'experience' => $request->input('experience'),
+            'requirements' => $request->input('requirements'),
+            'responsibilities'=> $request->input('responsibilities'),
+            'benefits' => $request->input('benefits'),
+            'employment_status'=> $request->input('employment_status')
+        ]);
+
+        $result= $createJobs->save();
+        if($result){
+            return redirect()->route('job-list')->with('success', 'Job Circular Created Successfully');
+        }else{
+            return back()->with('failed', 'Something went wrong');
+        }
+
+        // return redirect()->route('job-list')->with('success','Jobs Created Successfully');
     }
 
    

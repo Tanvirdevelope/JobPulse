@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyInfoController;
 use App\Http\Controllers\JobCircularController;
 use App\Http\Controllers\JobApplicationController;
+use App\Http\Controllers\CompanyEmployeesInfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,5 +70,10 @@ Route::post('apply', [JobApplicationController::class, 'applyPage'])->middleware
 Route::get('apply-job/{id}', [JobApplicationController::class, 'applyJob'])->middleware(['auth', 'verified'])->name('apply-job');
 Route::post('/application-store',[JobApplicationController::class, 'applicationStore'])->middleware(['auth', 'verified'])->name('application-store');
 Route::get('/user/job_application_list', [JobApplicationController::class, 'applied_job_list'])->middleware(['auth', 'verified'])->name('user/job_application_list');
+
+
+Route::get('/company-employee-create',[CompanyEmployeesInfoController::class, 'create'])->middleware(['auth', 'verified'])->name('company-employee-create');
+Route::post('/company-employee-store',[CompanyEmployeesInfoController::class, 'store'])->middleware(['auth', 'verified'])->name('company-employee-store');
+
 
 require __DIR__.'/auth.php';

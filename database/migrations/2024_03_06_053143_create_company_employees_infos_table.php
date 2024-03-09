@@ -25,10 +25,11 @@ return new class extends Migration
                 $table->integer('company_role')->nullable(); // Set default value to 0 as Candidate, 1 for Admin and 2 for Company
 
                 $table->string('gender');
-                $table->string('contact');
                 $table->string('address');
-                $table->string('photo');
                 $table->string('joining_date');
+
+                $table->timestamp('created_at')->useCurrent();
+                $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 

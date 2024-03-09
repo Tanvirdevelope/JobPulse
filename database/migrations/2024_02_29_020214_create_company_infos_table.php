@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('company_infos', function (Blueprint $table) {
             $table->id();
-
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')
+                ->restrictOnDelete()
+                ->cascadeOnUpdate();
+                
             $table->string('company_name');
             $table->string('company_email');
             $table->string('company_contact');

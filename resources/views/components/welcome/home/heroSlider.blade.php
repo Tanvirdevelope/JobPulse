@@ -10,8 +10,7 @@
                             <div class="col-12">
                                 <div class="content">
                                     <div class="heading-text ">
-                                        <h2 class="text-center">Largest Job <span
-                                                class="theme-color">Site</span> in Bangladesh</h2>
+                                        <h2 class="text-center">FIND THE<span class="theme-color"> JOB THAT</span> FITS YOUR LIFE</h2>
                                         <p class="text-center">Human shelters were at first very simple and
                                             perhaps lasted only a
                                             few days or months. Over time, however, even temporary structures
@@ -38,9 +37,7 @@
                             <div class="col-12">
                                 <div class="content">
                                     <div class="heading-text ">
-                                        <h2 class="text-center">The steps in <span class="theme-color">
-                                                building</span> construction
-                                            are explained</h2>
+                                        <h2 class="text-center">Largest Job <span class="theme-color">Site</span> in Bangladesh</h2>
                                         <p class="text-center">Human shelters were at first very simple and
                                             perhaps lasted only a
                                             few days or months. Over time, however, even temporary structures
@@ -67,9 +64,8 @@
                             <div class="col-12">
                                 <div class="content">
                                     <div class="heading-text ">
-                                        <h2 class="text-center">There may be <span
-                                                class="theme-color">variations</span> as every
-                                            project is unique</h2>
+                                        <h2 class="text-center">Find the right <span
+                                                class="theme-color">job</span>  Sectors in your Life</h2>
                                         <p class="text-center">Human shelters were at first very simple and
                                             perhaps lasted only a
                                             few days or months. Over time, however, even temporary structures

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use App\Models\Category;
+use App\Models\CompanyInfo;
 use App\Models\JobCircular;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobCircularController extends Controller
 {
@@ -61,12 +63,14 @@ class JobCircularController extends Controller
 
     public function jobCreate()
     {
+        $company_infos = CompanyInfo::where('user_id', Auth::id())->first('id');
+
         $categories = Category::all();
         $this->data['categories'] = [];
         foreach ($categories as $category) {
             $this->data['categories'][$category->id] = $category->category_name;
         }
-        return view('userpanel.company.job.job-create',  $this->data);
+        return view('userpanel.company.job.job-create',  $this->data, compact('company_infos'));
     }
 
     
@@ -78,7 +82,7 @@ class JobCircularController extends Controller
 
     public function jobStore(Request $request){
              $request->validate([
-                'user_id' => 'required|numeric',
+                'company_id' => 'required|numeric',
                 'job_category_id' => 'required|numeric',
                 'organization_name' => 'required|string|max:100',
                 'designation' => 'required|string|max:100',
@@ -101,7 +105,7 @@ class JobCircularController extends Controller
         }
 
         $createJobs= JobCircular::create([
-            'user_id'=> $request->input('user_id'),
+            'company_id'=> $request->input('company_id'),
             'job_category_id'=> $request->input('job_category_id'),
             'organization_name'=> $request->input('organization_name'),
             'designation' => $request->input('designation'),
@@ -131,13 +135,21 @@ class JobCircularController extends Controller
 
    
     public function jobEdit(string $id){
+        $company_infos = CompanyInfo::where('user_id', Auth::id())->first('id');
         $jobs = JobCircular::findOrFail($id);
-        return view('userpanel.company.job.job-edit', compact('jobs'));
+        $categories = Category::all();
+        $this->data['categories'] = [];
+        foreach ($categories as $category) {
+            $this->data['categories'][$category->id] = $category->category_name;
+        }
+        return view('userpanel.company.job.job-edit', $this->data, compact('jobs', 'company_infos'));
     }
 
     public function jobUpdate(Request $request, string $id){
 
         $request->validate([
+            'company_id' => 'required|numeric',
+            'job_category_id' => 'required|numeric',
             'organization_name' => 'required|string|max:100',
             'designation' => 'required|string|max:100',
             'application_deadline' => 'required|date|max:100',

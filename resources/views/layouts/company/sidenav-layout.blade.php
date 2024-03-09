@@ -127,6 +127,13 @@
                         </li>
 
                         <li class="submenu">
+                            <a href="javascript:void(0);"><img src="{{asset('asset/assets/img/icons/expense1.svg')}}" alt="img"><span> Employee</span> <span class="menu-arrow"></span></a>
+                            <ul>
+                            <li><a href="{{ route('company-employee-create') }}">Add Employee</a></li>
+                            <li><a href="">Employee List</a></li></ul>
+                        </li>
+
+                        <li class="submenu">
                         <a href="javascript:void(0);"><img src="{{asset('asset/assets/img/icons/expense1.svg')}}" alt="img"><span> Blogs</span> <span class="menu-arrow"></span></a>
                         <ul>
                         <li><a href="{{ route('home') }}">Categories</a></li>

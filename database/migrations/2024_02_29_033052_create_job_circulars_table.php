@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('job_circulars', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')
-                ->restrictOnDelete()
-                ->cascadeOnUpdate();
+            $table->UnsignedBigInteger('company_id');
+            $table->foreign('company_id')->references('id')->on('company_infos')
+                  ->restrictOnDelete()->cascadeOnUpdate(); // Foreign key to company_info table
             
             $table->UnsignedBigInteger('job_category_id');
             $table->foreign('job_category_id')->references('id')->on('categories')

@@ -10,7 +10,7 @@ class JobCircular extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'company_id',
         'job_category_id',
         'organization_name',
         'designation',

@@ -51,7 +51,11 @@
                     <div class="wrapper">
                         <div class="pop-text">
                             <h3>JOB LIST</h3>
-                            <h2>Recent <span class="theme-color">Published</span> Jobs</h2>
+                            @if (request()->is('/'))
+                                <h2>Recent <span class="theme-color">Published</span> Jobs</h2>
+                            @else
+                                <h2>All <span class="theme-color">Published</span> Jobs</h2>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -101,13 +105,23 @@
         </div>
     </div>
 
-    <!-- Button Section -->
-    <div class="btn-section text-center">
-        <a href="services.html"><span class="btn-shape-normal-outline">
-                <span>More Job</span>
-            </span></a>
 
+    @if (request()->is('/'))
+    <div class="btn-section text-center">
+        <a href="{{ url('/jobs') }}">
+            <span class="btn-shape-normal-outline">
+                <span>More Job</span>
+            </span>
+        </a>
     </div>
+    @else
+        <div class="btn-section text-center">
+            <div class="theme-color h5">
+                <span >{{ $jobList->links('pagination::simple-tailwind') }}</span>
+            </div>
+        </div>
+    @endif
+
 
 </section>
 <!-- Service List Section version three End -->

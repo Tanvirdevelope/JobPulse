@@ -19,7 +19,8 @@ class JobCircularController extends Controller
         ->groupBy('categories.id', 'categories.category_name')
         ->get();
         //dd($jobPublished);
-         $jobList= JobCircular::orderBy('id', 'desc')->get();
+         $jobList= JobCircular::paginate(3);
+        //  $jobList= JobCircular::orderBy('id', 'desc')->get();
 
          return view('pages.home-page', compact('jobList','jobPublished'));
     }
@@ -33,7 +34,7 @@ class JobCircularController extends Controller
         ->groupBy('categories.id', 'categories.category_name')
         ->get();
 
-        $jobList= JobCircular::orderBy('id', 'desc')->get();
+        $jobList= JobCircular::paginate(6);
 
          return view('pages.job-page', compact('jobList','jobPublished'));
 

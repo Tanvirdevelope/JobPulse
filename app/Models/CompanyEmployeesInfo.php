@@ -14,7 +14,9 @@ class CompanyEmployeesInfo extends Model
         'company_id',
         'company_role',
         'gender',
+        'contact',
         'address',
+        'photo',
         'joining_date',
     ];
 }

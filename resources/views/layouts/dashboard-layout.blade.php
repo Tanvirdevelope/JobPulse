@@ -12,6 +12,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/assets/img/favicon.jpg')}}">
     <link rel="stylesheet" href="{{asset('asset/assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('asset/assets/css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('asset/assets/plugins/summernote/summernote-bs4.min.css')}}">
     <link rel="stylesheet" href="{{asset('asset/assets/css/bootstrap-datetimepicker.min.css')}}">
     <link rel="stylesheet" href="{{asset('asset/assets/plugins/toastr/toatr.css')}}">
     <link rel="stylesheet" href="{{asset('asset/assets/plugins/select2/css/select2.min.css')}}">
@@ -19,6 +20,7 @@
     <link rel="stylesheet" href="{{asset('asset/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('asset/assets/plugins/fontawesome/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('asset/assets/css/style.css')}}">
+
 </head>
 <body>
     <div id="global-loader">
@@ -96,7 +98,7 @@
             <div class="dropdown mobile-user-menu">
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="">My Profile</a>
+                    <a class="dropdown-item" href="{{route('profile.edit')}}">My Profile</a>
                     <a class="dropdown-item" href="{{ url('/') }}">Home Page</a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
@@ -153,6 +155,7 @@
                         <li>
                         <a href="{{ route('home') }}"><i data-feather="file"></i><span> Plugins</span> </a>
                         </li>
+                        
 
                         <!-- Company SideBar -->  
                         @elseif (Auth()->check() && $role == 2)
@@ -189,10 +192,10 @@
                         </li>
                         @endif
 
-                        <li class="submenu">
-                            <a href="components.html"><img src="{{asset('asset/assets/img/icons/purchase1.svg')}}" alt="img"><span> Profile</span></a>
+                        <li>
+                            <a href="{{ route('profile.edit') }}"><img src="{{asset('asset/assets/img/icons/users1.svg')}}" alt="img"><span> Profile Setting</span></a>
                         </li>
-                     
+                                            
                     </ul>
                 </div>
             </div>
@@ -219,8 +222,11 @@
     <script src="{{asset('asset/assets/js/moment.min.js')}}"></script> 
     <script src="{{asset('asset/assets/js/bootstrap-datetimepicker.min.js')}}"></script> 
     <script src="{{asset('asset/assets/plugins/toastr/toastr.min.js')}}"></script>
-    <script src="{{asset('asset/assets/plugins/toastr/toastr.js')}}"></script>  
+    <script src="{{asset('asset/assets/plugins/toastr/toastr.js')}}"></script> 
+    <script src="{{asset('asset/assets/plugins/summernote/summernote-bs4.min.js')}}"></script> 
     <script src="{{asset('asset/assets/js/script.js')}}"></script>
+
+
 
     <script>
         @if (Session::has('success'))

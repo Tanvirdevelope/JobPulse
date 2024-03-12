@@ -26,7 +26,7 @@ use App\Http\Controllers\CompanyEmployeesInfoController;
 // Route::get('/', function () {
 //     return view('pages.home-page');
 // });
-Route::get('/',[JobCircularController::class, 'allItem']);
+Route::get('/', [JobCircularController::class, 'allItem']);
 Route::get('/job-details/{id}', [JobCircularController::class, 'show_jobDetails'])->name('job-details');
 Route::get('/alljobs-by-category/{id}', [JobCircularController::class, 'show_alljobs_by_category'])->name('alljobs-by-category');
 Route::get('/jobs', [JobCircularController::class, 'jobIndex'])->name('jobs');
@@ -37,7 +37,7 @@ Route::get('/contact', [ContactController::class, 'contactDetails'])->name('cont
 Route::get('/blogs', [BlogController::class, 'blogDetails'])->name('blogs');
 
 // Dashboard Routes
-Route::get('/home',[HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -46,34 +46,35 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/category-list',[CategoryController::class, 'categoryList'])->middleware(['auth', 'verified'])->name('category-list');
-Route::get('/category-create',[CategoryController::class, 'categoryCreate'])->middleware(['auth', 'verified'])->name('category-create');
-Route::post('/category-store',[CategoryController::class, 'categoryStore'])->middleware(['auth', 'verified'])->name('category-store');
-Route::get('/category/{id}/edit',[CategoryController::class, 'categoryEdit'])->middleware(['auth', 'verified'])->name('category.edit');
-Route::put('/category/{id}',[CategoryController::class, 'categoryUpdate'])->middleware(['auth', 'verified'])->name('category.update');
-Route::delete('/category/{id}',[CategoryController::class, 'categoryDelete'])->middleware(['auth', 'verified'])->name('category.delete');
+Route::get('/category-list', [CategoryController::class, 'categoryList'])->middleware(['auth', 'verified'])->name('category-list');
+Route::get('/category-create', [CategoryController::class, 'categoryCreate'])->middleware(['auth', 'verified'])->name('category-create');
+Route::post('/category-store', [CategoryController::class, 'categoryStore'])->middleware(['auth', 'verified'])->name('category-store');
+Route::get('/category/{id}/edit', [CategoryController::class, 'categoryEdit'])->middleware(['auth', 'verified'])->name('category.edit');
+Route::put('/category/{id}', [CategoryController::class, 'categoryUpdate'])->middleware(['auth', 'verified'])->name('category.update');
+Route::delete('/category/{id}', [CategoryController::class, 'categoryDelete'])->middleware(['auth', 'verified'])->name('category.delete');
 
 
-Route::get('/company-list',[CompanyInfoController::class, 'companyList'])->middleware(['auth', 'verified'])->name('company-list');
+Route::get('/company-list', [CompanyInfoController::class, 'companyList'])->middleware(['auth', 'verified'])->name('company-list');
 
 
-Route::get('/job-list',[JobCircularController::class, 'jobList'])->middleware(['auth', 'verified'])->name('job-list');
-Route::get('/job-create',[JobCircularController::class, 'jobCreate'])->middleware(['auth', 'verified'])->name('job-create');
-Route::post('/job-store',[JobCircularController::class, 'jobStore'])->middleware(['auth', 'verified'])->name('job-store');
-Route::get('/jobs/{id}/edit',[JobCircularController::class, 'jobEdit'])->middleware(['auth', 'verified'])->name('jobs.edit');
-Route::put('/jobs/{id}',[JobCircularController::class, 'jobUpdate'])->middleware(['auth', 'verified'])->name('jobs.update');
-Route::get('/jobs/{id}',[JobCircularController::class, 'jobShow'])->middleware(['auth', 'verified'])->name('jobs.show');
-Route::delete('/jobs/{id}',[JobCircularController::class, 'jobDelete'])->middleware(['auth', 'verified'])->name('jobs.delete');
+Route::get('/job-list', [JobCircularController::class, 'jobList'])->middleware(['auth', 'verified'])->name('job-list');
+Route::get('/job-create', [JobCircularController::class, 'jobCreate'])->middleware(['auth', 'verified'])->name('job-create');
+Route::post('/job-store', [JobCircularController::class, 'jobStore'])->middleware(['auth', 'verified'])->name('job-store');
+Route::get('/jobs/{id}/edit', [JobCircularController::class, 'jobEdit'])->middleware(['auth', 'verified'])->name('jobs.edit');
+Route::put('/jobs/{id}', [JobCircularController::class, 'jobUpdate'])->middleware(['auth', 'verified'])->name('jobs.update');
+Route::get('/jobs/{id}', [JobCircularController::class, 'jobShow'])->middleware(['auth', 'verified'])->name('jobs.show');
+Route::delete('/jobs/{id}', [JobCircularController::class, 'jobDelete'])->middleware(['auth', 'verified'])->name('jobs.delete');
 
 
 Route::post('apply', [JobApplicationController::class, 'applyPage'])->middleware(['auth', 'verified'])->name('apply');
 Route::get('apply-job/{id}', [JobApplicationController::class, 'applyJob'])->middleware(['auth', 'verified'])->name('apply-job');
-Route::post('/application-store',[JobApplicationController::class, 'applicationStore'])->middleware(['auth', 'verified'])->name('application-store');
+Route::post('/application-store', [JobApplicationController::class, 'applicationStore'])->middleware(['auth', 'verified'])->name('application-store');
 Route::get('/user/job_application_list', [JobApplicationController::class, 'applied_job_list'])->middleware(['auth', 'verified'])->name('user/job_application_list');
 
 
-Route::get('/company-employee-create',[CompanyEmployeesInfoController::class, 'create'])->middleware(['auth', 'verified'])->name('company-employee-create');
-Route::post('/company-employee-store',[CompanyEmployeesInfoController::class, 'store'])->middleware(['auth', 'verified'])->name('company-employee-store');
+Route::get('/company-employee-list', [CompanyEmployeesInfoController::class, 'index'])->middleware(['auth', 'verified'])->name('company-employee-list');
+Route::get('/company-employee-create', [CompanyEmployeesInfoController::class, 'create'])->middleware(['auth', 'verified'])->name('company-employee-create');
+Route::post('/company-employee-store', [CompanyEmployeesInfoController::class, 'store'])->middleware(['auth', 'verified'])->name('company-employee-store');
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

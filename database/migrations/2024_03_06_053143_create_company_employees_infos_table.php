@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('gender');
             $table->string('contact');
             $table->string('address');
-            $table->string('photo')->nullable();;
+            $table->string('photo');
             $table->string('joining_date');
 
             $table->timestamp('created_at')->useCurrent();

@@ -3,15 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\CompanyInfo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\CompanyEmployeesInfo;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyEmployeesInfoController extends Controller
 {
+    public function index()
+    {
+        $this->data['empl_list'] = CompanyEmployeesInfo::orderBy('id', 'desc')->get();
+
+        return view('userpanel.company.employee.employee-list', $this->data);
+    }
     public function create()
     {
+        $company_infos = CompanyInfo::where('user_id', Auth::id())->first('id');
         $companyEmployeesInfos = CompanyEmployeesInfo::get();
-        return view('userpanel.company.employee.employee-create', compact('companyEmployeesInfos'));
+        return view('userpanel.company.employee.employee-create', compact('companyEmployeesInfos', 'company_infos'));
     }
 
     public function store(Request $request)
@@ -36,6 +46,12 @@ class CompanyEmployeesInfoController extends Controller
             $user = User::latest('id')->first();
             $userId = $user->id;
 
+            if ($request->hasFile('photo')) {
+                $image = $request->photo;
+                $imageName = 'photo' . time() . '.' . $image->getClientOriginalExtension();
+                $image->move('assets/img/company/', $imageName);
+            }
+
             $employee = CompanyEmployeesInfo::create([
                 'user_id' => $userId,
                 'company_id' => $request->input('company_id'),
@@ -43,11 +59,11 @@ class CompanyEmployeesInfoController extends Controller
                 'gender' => $request->input('gender'),
                 'contact' => $request->input('contact'),
                 'address' => $request->input('address'),
-                'image' => $request->input('image'),
+                'photo' => $imageName,
                 'joining_date' => $request->input('joining_date'),
             ]);
             if ($employee) {
-                return redirect('company-employee-create')->with('success', 'Employee Added Successfully');
+                return redirect('company-employee-list')->with('success', 'Employee Added Successfully');
             } else {
                 return back()->with('error', 'Something went wrong');
             }

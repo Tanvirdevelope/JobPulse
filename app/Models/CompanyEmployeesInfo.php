@@ -19,4 +19,9 @@ class CompanyEmployeesInfo extends Model
         'photo',
         'joining_date',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

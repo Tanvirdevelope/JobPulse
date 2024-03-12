@@ -171,7 +171,7 @@
                             <a href="javascript:void(0);"><img src="{{asset('asset/assets/img/icons/expense1.svg')}}" alt="img"><span> Employee</span> <span class="menu-arrow"></span></a>
                             <ul>
                             <li><a href="{{ route('company-employee-create') }}">Add Employee</a></li>
-                            <li><a href="">Employee List</a></li></ul>
+                            <li><a href="{{ route('company-employee-list') }}">Employee List</a></li></ul>
                         </li>
 
                         <li class="submenu">

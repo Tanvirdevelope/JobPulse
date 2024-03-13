@@ -11,6 +11,18 @@
     </div>
     </div>
 
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <div class="card">
         <div class="card-body">
             <div class="table-top">
@@ -81,12 +93,17 @@
                             <td>{{$employeeList->address}}</td>
                             <td>{{$employeeList->joining_date}}</td>
                             <td>
-                                <a class="me-3" href="editquotation.html">
+                                <form action="{{ route('company-employee.delete', $employeeList->id) }}" method="POST" id="deleteForm">
+                                    @csrf
+                                    @method('DELETE')
+                                <a class="me-3" href="{{ route('company-employee.edit', $employeeList->id) }}">
                                     <img src="{{asset('asset/assets/img/icons/edit.svg')}}" alt="img">
                                 </a>
-                                <a class="me-3 confirm-text" href="javascript:void(0);">
-                                    <img src="{{asset('asset/assets/img/icons/delete.svg')}}" alt="img">
-                                </a>
+                                    
+                                <button type="button" class="border-0" onclick="confirmDelete()">
+                                    <img src="{{ asset('asset/assets/img/icons/delete.svg') }}" alt="Delete">
+                                </button>
+                                </form>
                             </td>
                         </tr>
 
@@ -101,3 +118,11 @@
 </div>
 
 {{-- <td><span class="badges bg-lightyellow">Ordered</span></td> --}}
+
+<script>
+    function confirmDelete() {
+        if (window.confirm('Are you sure you want to delete this employee?')) {
+            document.getElementById('deleteForm').submit();
+        }
+    }
+</script>

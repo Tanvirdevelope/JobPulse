@@ -75,6 +75,9 @@ Route::get('/user/job_application_list', [JobApplicationController::class, 'appl
 Route::get('/company-employee-list', [CompanyEmployeesInfoController::class, 'index'])->middleware(['auth', 'verified'])->name('company-employee-list');
 Route::get('/company-employee-create', [CompanyEmployeesInfoController::class, 'create'])->middleware(['auth', 'verified'])->name('company-employee-create');
 Route::post('/company-employee-store', [CompanyEmployeesInfoController::class, 'store'])->middleware(['auth', 'verified'])->name('company-employee-store');
+Route::get('/company-employee/{id}/edit', [CompanyEmployeesInfoController::class, 'edit'])->middleware(['auth', 'verified'])->name('company-employee.edit');
+Route::put('/company-employee/{id}', [CompanyEmployeesInfoController::class, 'update'])->middleware(['auth', 'verified'])->name('company-employee.update');
+Route::delete('/company-employee/{id}', [CompanyEmployeesInfoController::class, 'destroy'])->middleware(['auth', 'verified'])->name('company-employee.delete');
 
 
 require __DIR__ . '/auth.php';

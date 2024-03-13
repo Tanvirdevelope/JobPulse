@@ -14,7 +14,6 @@ class CompanyEmployeesInfoController extends Controller
     public function index()
     {
         $this->data['empl_list'] = CompanyEmployeesInfo::orderBy('id', 'desc')->get();
-
         return view('userpanel.company.employee.employee-list', $this->data);
     }
     public function create()
@@ -67,6 +66,40 @@ class CompanyEmployeesInfoController extends Controller
             } else {
                 return back()->with('error', 'Something went wrong');
             }
+        }
+    }
+
+    public function edit(string $id)
+
+    {
+        $emplEdit = CompanyEmployeesInfo::findOrFail($id);
+
+        return view('userpanel.company.employee.employee-edit', compact('emplEdit'));
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+            'company_role' => 'required',
+        ]);
+
+        $employee = CompanyEmployeesInfo::where('id', $id)->firstOrFail();
+        $employee->update([
+            'company_role' => $request->input('company_role')
+        ]);
+        return redirect('company-employee-list')->with('success', 'Employee Updated Successfully');
+    }
+
+    public function destroy(string $id)
+    {
+
+        //first find user id and employee id
+        $employee = CompanyEmployeesInfo::where('id', $id)->firstOrFail();
+        $user = User::findOrFail($employee->user_id);
+        if ($employee->delete() && $user->delete()) {
+            return redirect('company-employee-list')->with('success', 'Employee Deleted Successfully');
+        } else {
+            return back()->with('error', 'Something went wrong');
         }
     }
 }

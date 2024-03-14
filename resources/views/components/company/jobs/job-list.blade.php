@@ -57,6 +57,7 @@
                             <th>Vacancy</th>
                             <th>Minimum Salary</th>
                             <th>Employment Status</th>
+                            <th>Applicants List</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -81,22 +82,33 @@
                             <td>{{$jobItem->application_deadline}}</td>
                             <td>{{$jobItem->vacancy_count}}</td>
                             <td>{{$jobItem->minimum_salary}}</td>
-                            <td>{{$jobItem->employment_status}}</td>   
-                            <form action="{{route('jobs.delete', $jobItem->id)}}" method="post">
-                                @csrf
-                                @method('DELETE')                     
+                            <td>{{$jobItem->employment_status}}</td>
                             <td>
-                                <a class="me-3" href="{{route('jobs.show', $jobItem->id)}}">
-                                <img src="asset/assets/img/icons/eye.svg" alt="img">
-                                </a>
+                                <form action="{{route('user_applicants_list')}}" method="post">
+                                    @csrf
+                                    <input type="text" name="job_id" value="{{$jobItem->id}}" hidden>
+                                    <input type="text" name="company_id" value="{{$jobItem->company_id}}" hidden>
 
-                                <a class="me-3" href="{{route('jobs.edit', $jobItem->id)}}">
-                                <img src="asset/assets/img/icons/edit.svg" alt="img">
-                                </a>
+                                    <button type="submit" class="btn btn-info">Click here</button>
+                                </form>    
+                            </td>   
+                                                 
+                            <td>
+                                <form action="{{route('jobs.delete', $jobItem->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a class="me-3" href="{{route('jobs.show', $jobItem->id)}}">
+                                    <img src="asset/assets/img/icons/eye.svg" alt="img">
+                                    </a>
 
-                                <button type="submit" class="border-0"><img src="asset/assets/img/icons/delete.svg" alt="img"></button>
+                                    <a class="me-3" href="{{route('jobs.edit', $jobItem->id)}}">
+                                    <img src="asset/assets/img/icons/edit.svg" alt="img">
+                                    </a>
+
+                                    <button type="submit" class="border-0"><img src="asset/assets/img/icons/delete.svg" alt="img"></button>
+                                </form>
                             </td>
-                            </form>
+                            
                         </tr>
                         
                         @endforeach

@@ -59,7 +59,13 @@
                             <td>{{  $job->organization_name }}</td>
                             <td>{{  $job->designation }}</td>
                             <td>
-                                <span class="badges bg-lightgreen">{{ 'Success' }}</span>
+                                @if($job->status==1)
+                                    <span class="badges bg-lightyellow">{{ 'Pending' }}</span> 
+                                @elseif($job->status==2)
+                                    <span class="badges bg-lightgreen">{{ 'Selected' }}</span>
+                                @elseif($job->status==3)
+                                    <span class="badges bg-lightred">{{ 'Rejected' }}</span>
+                                @endif
                             </td>
                             <td class="text-end">
                                 <a class="me-3" href="editpermission.html">

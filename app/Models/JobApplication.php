@@ -10,6 +10,7 @@ class JobApplication extends Model
 {
     protected $fillable = [
         'user_id',
+        'company_id',
         'job_id',
         'first_name',
         'last_name',
@@ -20,6 +21,4 @@ class JobApplication extends Model
         'signature',
         'cv',
     ];
-
-
 }

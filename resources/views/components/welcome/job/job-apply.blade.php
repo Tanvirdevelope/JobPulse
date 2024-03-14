@@ -76,6 +76,10 @@
                                                         <input name="job_id" type="text" required title="Field must be a number."
                                                             aria-required="true" value="{{$job_details->id}}" hidden>
                                                     </div>
+                                                    <div class="d-md-flex access gap-3">
+                                                        <input name="company_id" type="text" required title="Field must be a number."
+                                                            aria-required="true" value="{{$job_details->company_id}}" hidden>
+                                                    </div>
 
                                                     <div class="access gap-3 col-lg-12">
                                                         <div class="form-group">

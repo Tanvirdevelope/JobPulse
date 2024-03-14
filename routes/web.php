@@ -66,10 +66,15 @@ Route::get('/jobs/{id}', [JobCircularController::class, 'jobShow'])->middleware(
 Route::delete('/jobs/{id}', [JobCircularController::class, 'jobDelete'])->middleware(['auth', 'verified'])->name('jobs.delete');
 
 
+Route::post('/user_applicants_list', [JobCircularController::class, 'applicants_list'])->name('user_applicants_list');
+Route::get('/company_applicant_details/{id}', [JobCircularController::class, 'applicant_details'])->name('company_applicant_details');
+
+
+
 Route::post('apply', [JobApplicationController::class, 'applyPage'])->middleware(['auth', 'verified'])->name('apply');
 Route::get('apply-job/{id}', [JobApplicationController::class, 'applyJob'])->middleware(['auth', 'verified'])->name('apply-job');
 Route::post('/application-store', [JobApplicationController::class, 'applicationStore'])->middleware(['auth', 'verified'])->name('application-store');
-Route::get('/user/job_application_list', [JobApplicationController::class, 'applied_job_list'])->middleware(['auth', 'verified'])->name('user/job_application_list');
+Route::get('/job_application_list', [JobApplicationController::class, 'applied_job_list'])->middleware(['auth', 'verified'])->name('job_application_list');
 
 
 Route::get('/company-employee-list', [CompanyEmployeesInfoController::class, 'index'])->middleware(['auth', 'verified'])->name('company-employee-list');

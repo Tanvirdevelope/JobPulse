@@ -84,7 +84,7 @@
                 <div class="col-xl-2 col-lg-2 col-md-6 col-6">
                     <div class="logo-area">
                         <div class="logo">
-                            <a href="index-2.html"><img src="{{asset('./assets/img/common/Logo_White.png')}}" alt="Roralex"></a>
+                            <a href="{{url('/')}}"><img src="{{asset('./assets/img/common/job.png')}}" alt="Roralex"></a>
                         </div>
                     </div>
                 </div>

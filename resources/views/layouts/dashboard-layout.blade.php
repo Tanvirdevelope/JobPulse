@@ -188,7 +188,7 @@
                         @elseif (Auth()->check() && $role == 0)
 
                         <li>
-                            <a href="{{ route('user/job_application_list') }}"><img src="{{asset('asset/assets/img/icons/sales1.svg')}}" alt="img"><span> Job Application</span></a>
+                            <a href="{{ route('job_application_list') }}"><img src="{{asset('asset/assets/img/icons/sales1.svg')}}" alt="img"><span> Job Application</span></a>
                         </li>
                         @endif
 

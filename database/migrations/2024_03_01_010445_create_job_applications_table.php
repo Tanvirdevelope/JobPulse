@@ -19,19 +19,26 @@ return new class extends Migration
                 ->restrictOnDelete()
                 ->cascadeOnUpdate();
 
+            $table->UnsignedBigInteger('company_id');
+            $table->foreign('company_id')->references('id')->on('company_infos')
+                ->restrictOnDelete()
+                ->cascadeOnUpdate();
+
             $table->unsignedBigInteger('job_id');
             $table->foreign('job_id')->references('id')->on('job_circulars')
                 ->restrictOnDelete()
                 ->cascadeOnUpdate();
 
-            $table->string('first_name',200);
-            $table->string('last_name',50);
-            $table->string('address',50);
+            $table->string('first_name', 200);
+            $table->string('last_name', 50);
+            $table->string('address', 50);
             $table->string('gender');
             $table->date('birth_date');
             $table->string('image')->nullable();
             $table->string('signature')->nullable();
             $table->string('cv')->nullable();
+
+            $table->integer('status')->default(1);
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

@@ -8,7 +8,7 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="wrapper-one">
                                 <div class="img-file">
-                                    <img src="./assets/img/common/Logo_White.png" alt="">
+                                    <img src="{{asset('./assets/img/common/job.png')}}" alt="logo">
                                 </div>
                                 <div class="text-file">
                                     <h3>Building Construction</h3>

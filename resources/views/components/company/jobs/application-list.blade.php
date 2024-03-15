@@ -1,79 +1,108 @@
-<div class="container-fluid">
-    <div class="row align-items-center">
-        <div class="col-md-6">
-            <div class="mb-3">
-                <h5 class="card-title">Total Apllications</h5>
-            </div>
+<div class="content">
+    <div class="page-header">
+        <div class="page-title">
+        <h4>Apllications List</h4>
+        <h6>Manage your Apllications</h6>
         </div>
+        {{-- <div class="page-btn">
+        <a href="{{ route('job-create') }}" class="btn btn-added"><img src="{{asset('asset/assets/img/icons/plus.svg')}}" alt="img" class="me-1">Add New Job</a>
+        </div> --}}
+    </div>
+        
+    <div class="card">
+        <div class="card-body">
+            <div class="table-top">
+                <div class="search-set">
+                    <div class="search-path">
+                        <a class="btn btn-filter" id="filter_search">
+                        <img src="{{asset('asset/assets/img/icons/filter.svg')}}" alt="img">
+                        <span><img src="{{asset('asset/assets/img/icons/closes.svg')}}" alt="img"></span>
+                        </a>
+                    </div>
+                    <div class="search-input">
+                        <a class="btn btn-searchset"><img src="{{asset('asset/assets/img/icons/search-white.svg')}}" alt="img"></a>
+                    </div>
+                </div>
 
-        <div class="col-md-6">
-            <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
-                <div>
+                <div class="wordset">
+                    <ul>
+                    <li>
+                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="pdf"><img src="{{asset('asset/assets/img/icons/pdf.svg')}}" alt="img"></a>
+                    </li>
+                    <li>
+                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="excel"><img src="{{asset('asset/assets/img/icons/excel.svg')}}" alt="img"></a>
+                    </li>
+                    <li>
+                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="print"><img src="{{asset('asset/assets/img/icons/printer.svg')}}" alt="img"></a>
+                    </li>
+                    </ul>
                 </div>
             </div>
+            
+            
+            <div class="table-responsive">
+                <table class="table  datanew">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label class="checkboxs">
+                                    <input type="checkbox" id="select-all">
+                                    <span class="checkmarks"></span>
+                                </label>
+                            </th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Date of Birth</th>
+                            <th>Company Review</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
 
+                    <tbody>
+                        @foreach ($applicantsLists as $details)  
+                        <tr>
+                            <td>
+                                <label class="checkboxs">
+                                    <input type="checkbox">
+                                    <span class="checkmarks"></span>
+                                </label>
+                            </td>
+                            <td class="productimgname">
+                                <a href="#" class="product-img">
+                                <img src="{{asset('asset/assets/img/customer/customer5.jpg')}}" alt="product">
+                                </a>
+                                <a href="#">{{ $details->first_name }} {{ $details->last_name }}</a>
+                            </td>
+                            <td>{{$details->address}}</td>
+                            <td>{{$details->birth_date}}</td>
+                            <td>
+                                @if($details->status==1)
+                                    {{ 'Pending' }}
+                                @elseif($details->status==2)
+                                    {{ 'Selected' }}
+                                @elseif($details->status==3)
+                                    {{ 'Rejected' }}
+                                @endif
+                            </td>
+                                                 
+                            <td>
+                                <form action="{{ route('company_applicant.delete', $details->id) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a class="me-3" href="{{route('company_applicant_details', $details->id)}}">
+                                    <img src="{{asset('asset/assets/img/icons/eye.svg')}}" alt="img">
+                                    </a>
+                                    <button type="submit" class="border-0"><img src="{{asset('asset/assets/img/icons/delete.svg')}}" alt="img"></button>
+                                </form>
+                            </td>
+                            
+                        </tr>
+                        
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    <!-- end row -->
-
-    <div class="table-responsive mb-4">
-        <table id="nameTable" class="table align-middle datatable dt-responsive table-check nowrap" style="border-collapse: collapse; border-spacing: 0 8px; width: 100%;">
-            <thead>
-                  <tr class="table-active">
-                    <th scope="col">Name</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">DoB</th>
-                    <th scope="col">Company Review</th>
-                    <th scope="col">Action</th>
-                  </tr>
-            </thead>
-            <tbody>
-            @foreach ($applicantsLists as $details)
-                 <tr>
-                    <td>{{ $details->first_name }} {{ $details->last_name }}</td>
-                    <td>{{$details->address}}</td>
-                    <td>{{$details->birth_date}}</td>
-                    <td>
-                        @if($details->status==1)
-                            {{ 'Pending' }}
-                        @elseif($details->status==2)
-                            {{ 'Selected' }}
-                        @elseif($details->status==3)
-                            {{ 'Rejected' }}
-                        @endif
-                    </td>
-
-                    <td class="d-flex gap-1">
-
-                         <div class="edit-btn">
-                         {{-- edit button --}}
-                        <a href="{{ route('company_applicant_details', $details->id) }}" class="btn btn-primary btn-sm">See Details</a>
-                       </div>
-
-                      <div class="delete-btn">
-                        {{-- delete success message --}}
-                        @if (session('delete'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('delete') }}
-                        </div>
-
-                        @endif
-                        
-                        {{-- delete button --}}
-                        {{-- <!-- <form action="{{ route('company/applicant_delete', $details->id) }}" method="POST"> --}}
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                      </form> 
-
-                      </div>
-                    </td>
-                  </tr>
-                 @endforeach
-            </tbody>
-        </table>
-        <!-- end table -->
-    </div>
-    <!-- end table responsive -->
     
-</div> 
+    </div>

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\CompanyInfo;
 use App\Models\JobCircular;
 use Illuminate\Http\Request;
+use App\Models\JobApplication;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -219,5 +220,36 @@ class JobCircularController extends Controller
             ->first();
         //dd($applicantsinfo);
         return view('userpanel.company.job.applicant-details', compact('applicantsinfo'));
+    }
+
+    public function applicants_update(Request $request)
+    {
+        $id = $request->input('id');
+        $job_apply = JobApplication::find($id);
+
+        //dd($job_apply);
+
+        if ($job_apply) {
+            $result = $job_apply->update([
+                'status' => $request->input('status'),
+            ]);
+
+            if ($result) {
+                return redirect()->route('job-list', $id)->with('success', 'Post updated successfully');
+            } else {
+                return redirect()->route('job-list', $id)->with('fail', 'Post Not updated');
+            }
+        } else {
+            return redirect()->route('job-list', $id)->with('fail', 'Job application not found');
+        }
+    }
+
+
+    public function applicant_delete(string $id)
+    {
+        $applicant = JobApplication::find($id);
+        $applicant->delete();
+
+        return redirect()->route('job-list')->with('success', 'Job applicant Deleted Successfully');
     }
 }

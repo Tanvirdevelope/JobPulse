@@ -16,11 +16,11 @@ return new class extends Migration
 
             $table->UnsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('company_infos')
-                  ->restrictOnDelete()->cascadeOnUpdate(); // Foreign key to company_info table
-            
+                ->restrictOnDelete()->cascadeOnUpdate(); // Foreign key to company_info table
+
             $table->UnsignedBigInteger('job_category_id');
             $table->foreign('job_category_id')->references('id')->on('categories')
-                 ->restrictOnDelete()->cascadeOnUpdate(); // Foreign key to job_categories table
+                ->restrictOnDelete()->cascadeOnUpdate(); // Foreign key to job_categories table
 
             $table->string('organization_name');
             $table->string('designation');
@@ -36,6 +36,7 @@ return new class extends Migration
             $table->text('responsibilities');
             $table->text('benefits');
             $table->string('employment_status');
+            $table->tinyInteger('status')->default(0);
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

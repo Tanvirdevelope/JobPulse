@@ -25,6 +25,7 @@ class JobCircular extends Model
         'requirements',
         'responsibilities',
         'benefits',
-        'employment_status'
+        'employment_status',
+        'status'
     ];
 }

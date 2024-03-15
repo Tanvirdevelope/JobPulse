@@ -68,6 +68,8 @@ Route::delete('/jobs/{id}', [JobCircularController::class, 'jobDelete'])->middle
 
 Route::post('/user_applicants_list', [JobCircularController::class, 'applicants_list'])->name('user_applicants_list');
 Route::get('/company_applicant_details/{id}', [JobCircularController::class, 'applicant_details'])->name('company_applicant_details');
+Route::post('/applicants_update', [JobCircularController::class, 'applicants_update'])->name('applicants_update');
+Route::delete('/company_applicant_delete/{id}', [JobCircularController::class, 'applicant_delete'])->name('company_applicant.delete');
 
 
 

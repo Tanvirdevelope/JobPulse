@@ -25,7 +25,7 @@
                 <div class="row">
 
                     {{-- User id --}}
-                    <input value="{{$company_infos->id}}" name="company_id" type="text" class="form-control" id="company_id" >
+                    <input value="{{$company_infos->id}}" name="company_id" type="text" class="form-control" id="company_id" hidden>
 
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
